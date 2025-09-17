@@ -53,9 +53,13 @@ $res = $conn->query('SELECT * FROM students');
 <body>
     <header><h1>Students</h1></header>
     <nav>
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="students.php">Students</a>
-        <a href="../php/logout.php">Logout</a>
+        <a href="../dashboard.php">🏠 Dashboard</a>
+        <a href="students.php">👥 Students</a>
+        <a href="instructors.php">👨‍🏫 Instructors</a>
+        <a href="bookings.php">📅 Bookings</a>
+        <a href="invoices.php">💰 Invoices</a>
+        <a href="messages.php">💬 Messages</a>
+        <a href="logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Add Student</h2>

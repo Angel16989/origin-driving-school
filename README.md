@@ -9,11 +9,19 @@
 
 ## Setup Instructions
 
-1. Import `db/database.sql` into phpMyAdmin (create a new database, e.g., `origin_driving_school`).
-2. Copy the entire project folder into your XAMPP `htdocs` directory.
-3. Start Apache and MySQL from XAMPP Control Panel.
-4. Access the site via [http://localhost/Groupprojectdevelopingweb](http://localhost/Groupprojectdevelopingweb).
-5. Login with sample credentials:
+### 🚀 Quick Start:
+1. **Start XAMPP** - Open XAMPP Control Panel and start Apache and MySQL services
+2. **Create Database** - Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+   - Click "New" to create a database
+   - Name it `origin_driving_school`
+   - Click "Create"
+3. **Import Database** - Select the new database and click "Import"
+   - Choose file: `db/database.sql`
+   - Click "Go" to import
+4. **Test Setup** - Visit [http://localhost/Groupprojectdevelopingweb/test_setup.php](http://localhost/Groupprojectdevelopingweb/test_setup.php)
+5. **Access Site** - Go to [http://localhost/Groupprojectdevelopingweb](http://localhost/Groupprojectdevelopingweb)
+
+### 🔑 Login Credentials:
    - **Admin:** admin / password
    - **Student:** student1 / password  
    - **Instructor:** instructor1 / password
@@ -33,8 +41,19 @@
 - Student & Instructor management
 - Booking system (with calendar)
 - Invoice & Payment management
-- Messaging/Notifications
-- Dashboard with statistics
+- Dashboard with statistics and quick navigation
+- Messaging system with user-to-user communication
+
+### 🛠️ Troubleshooting:
+- **Database Connection Error**: Ensure XAMPP MySQL is running and database is created
+- **Login Issues**: Use test credentials (admin/password) and check database import
+- **Page Not Loading**: Check Apache service in XAMPP and file permissions
+- **Missing Data**: Re-import database.sql file in phpMyAdmin
+
+### 🧪 Testing:
+- Visit `/test_setup.php` to verify all components are working
+- Check database tables and sample data are properly imported
+- Test all login credentials and page navigation
 
 ## Notes
 - No frameworks used (pure PHP, MySQL, HTML, CSS, JS)

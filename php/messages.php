@@ -32,20 +32,26 @@ $res = $conn->query('SELECT m.*, u1.username AS sender, u2.username AS receiver 
 <body>
     <header><h1>Messages</h1></header>
     <nav>
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="messages.php">Messages</a>
-        <a href="../php/logout.php">Logout</a>
+        <a href="../dashboard.php">🏠 Dashboard</a>
+        <a href="students.php">👥 Students</a>
+        <a href="instructors.php">👨‍🏫 Instructors</a>
+        <a href="bookings.php">📅 Bookings</a>
+        <a href="invoices.php">💰 Invoices</a>
+        <a href="messages.php">💬 Messages</a>
+        <a href="logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Send Message</h2>
         <form method="post" action="?action=send">
             <div class="form-group"><label>To</label><select name="receiver_id" required>
-                <?php while($u = $users->fetch_assoc()): ?>
+                <?php 
+                $users_for_send = $conn->query('SELECT id, username FROM users WHERE id != '.$user_id);
+                while($u = $users_for_send->fetch_assoc()): ?>
                 <option value="<?php echo $u['id']; ?>"><?php echo $u['username']; ?></option>
                 <?php endwhile; ?>
             </select></div>
             <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
-            <button class="btn" type="submit">Send</button>
+            <button class="btn" type="submit">📨 Send Message</button>
         </form>
         <h2>Message History</h2>
         <table class="table">

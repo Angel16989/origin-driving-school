@@ -37,7 +37,7 @@ if ($action === 'delete' && isset($_GET['id'])) {
     header('Location: bookings.php');
     exit;
 }
-$res = $conn->query('SELECT * FROM bookings');
+$res = $conn->query('SELECT b.*, s.name as student_name, i.name as instructor_name FROM bookings b LEFT JOIN students s ON b.student_id = s.id LEFT JOIN instructors i ON b.instructor_id = i.id');
 $students = $conn->query('SELECT * FROM students');
 $instructors = $conn->query('SELECT * FROM instructors');
 ?>
@@ -52,26 +52,34 @@ $instructors = $conn->query('SELECT * FROM instructors');
 <body>
     <header><h1>Bookings</h1></header>
     <nav>
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="bookings.php">Bookings</a>
-        <a href="../php/logout.php">Logout</a>
+        <a href="../dashboard.php">🏠 Dashboard</a>
+        <a href="students.php">👥 Students</a>
+        <a href="instructors.php">👨‍🏫 Instructors</a>
+        <a href="bookings.php">📅 Bookings</a>
+        <a href="invoices.php">💰 Invoices</a>
+        <a href="messages.php">💬 Messages</a>
+        <a href="logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Add Booking</h2>
         <form method="post" action="?action=add">
             <div class="form-group"><label>Student</label><select name="student_id" required>
-                <?php while($s = $students->fetch_assoc()): ?>
+                <?php 
+                $students_for_add = $conn->query('SELECT * FROM students');
+                while($s = $students_for_add->fetch_assoc()): ?>
                 <option value="<?php echo $s['id']; ?>"><?php echo $s['name']; ?></option>
                 <?php endwhile; ?>
             </select></div>
             <div class="form-group"><label>Instructor</label><select name="instructor_id" required>
-                <?php while($i = $instructors->fetch_assoc()): ?>
+                <?php 
+                $instructors_for_add = $conn->query('SELECT * FROM instructors');
+                while($i = $instructors_for_add->fetch_assoc()): ?>
                 <option value="<?php echo $i['id']; ?>"><?php echo $i['name']; ?></option>
                 <?php endwhile; ?>
             </select></div>
             <div class="form-group"><label>Date</label><input type="date" name="date" required></div>
             <div class="form-group"><label>Time</label><input type="time" name="time" required></div>
-            <button class="btn" type="submit">Add Booking</button>
+            <button class="btn" type="submit">📅 Add Booking</button>
         </form>
         <?php if(isset($msg)) echo '<p style="color:red;">'.$msg.'</p>'; ?>
         <h2>Booking List</h2>
@@ -80,12 +88,12 @@ $instructors = $conn->query('SELECT * FROM instructors');
             <?php while($row = $res->fetch_assoc()): ?>
             <tr>
                 <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['student_id']; ?></td>
-                <td><?php echo $row['instructor_id']; ?></td>
+                <td><?php echo $row['student_name'] ?? 'Unknown'; ?></td>
+                <td><?php echo $row['instructor_name'] ?? 'Unknown'; ?></td>
                 <td><?php echo $row['date']; ?></td>
                 <td><?php echo $row['time']; ?></td>
                 <td><?php echo $row['status']; ?></td>
-                <td><a class="btn" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete booking?');">Delete</a></td>
+                <td><a class="btn btn-danger" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete booking?');">🗑️ Delete</a></td>
             </tr>
             <?php endwhile; ?>
         </table>

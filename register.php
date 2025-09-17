@@ -41,8 +41,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <header><h1>Student Registration</h1></header>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="login.php">Login</a>
+        <a href="index.php">🏠 Home</a>
+        <a href="login.php">🔐 Login</a>
+        <a href="register.php">📝 Register</a>
+        <a href="test_setup.php">🔧 Test Setup</a>
     </nav>
     <div class="container">
         <form method="post" onsubmit="return validateRegistrationForm();">

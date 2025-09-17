@@ -33,14 +33,14 @@ $stats['revenue'] = $row['total'] ? $row['total'] : 0.00;
 <body>
     <header><h1>Dashboard</h1></header>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="php/students.php">Students</a>
-        <a href="php/instructors.php">Instructors</a>
-        <a href="php/bookings.php">Bookings</a>
-        <a href="php/invoices.php">Invoices</a>
-        <a href="php/messages.php">Messages</a>
-        <a href="php/logout.php">Logout</a>
+        <a href="index.php">🏠 Home</a>
+        <a href="dashboard.php">📊 Dashboard</a>
+        <a href="php/students.php">👥 Students</a>
+        <a href="php/instructors.php">👨‍🏫 Instructors</a>
+        <a href="php/bookings.php">📅 Bookings</a>
+        <a href="php/invoices.php">💰 Invoices</a>
+        <a href="php/messages.php">💬 Messages</a>
+        <a href="php/logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Dashboard Overview</h2>

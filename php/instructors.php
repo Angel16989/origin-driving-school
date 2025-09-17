@@ -38,7 +38,7 @@ if ($action === 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: instructors.php');
     exit;
 }
-$res = $conn->query('SELECT * FROM instructors');
+$res = $conn->query('SELECT i.*, b.name as branch_name FROM instructors i LEFT JOIN branches b ON i.branch_id = b.id');
 $branches = $conn->query('SELECT * FROM branches');
 ?>
 <!DOCTYPE html>
@@ -51,9 +51,13 @@ $branches = $conn->query('SELECT * FROM branches');
 <body>
     <header><h1>Instructors</h1></header>
     <nav>
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="instructors.php">Instructors</a>
-        <a href="../php/logout.php">Logout</a>
+        <a href="../dashboard.php">🏠 Dashboard</a>
+        <a href="students.php">👥 Students</a>
+        <a href="instructors.php">👨‍🏫 Instructors</a>
+        <a href="bookings.php">📅 Bookings</a>
+        <a href="invoices.php">💰 Invoices</a>
+        <a href="messages.php">💬 Messages</a>
+        <a href="logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Add Instructor</h2>
@@ -63,11 +67,13 @@ $branches = $conn->query('SELECT * FROM branches');
             <div class="form-group"><label>Qualifications</label><input type="text" name="qualifications" required></div>
             <div class="form-group"><label>Schedule</label><input type="text" name="schedule" required></div>
             <div class="form-group"><label>Branch</label><select name="branch_id" required>
-                <?php while($b = $branches->fetch_assoc()): ?>
+                <?php 
+                $branches_for_add = $conn->query('SELECT * FROM branches');
+                while($b = $branches_for_add->fetch_assoc()): ?>
                 <option value="<?php echo $b['id']; ?>"><?php echo $b['name']; ?></option>
                 <?php endwhile; ?>
             </select></div>
-            <button class="btn" type="submit">Add Instructor</button>
+            <button class="btn" type="submit">➕ Add Instructor</button>
         </form>
         <h2>Instructor List</h2>
         <table class="table">
@@ -80,10 +86,10 @@ $branches = $conn->query('SELECT * FROM branches');
                 <td><input type="email" name="email" value="<?php echo $row['email']; ?>"></td>
                 <td><input type="text" name="qualifications" value="<?php echo $row['qualifications']; ?>"></td>
                 <td><input type="text" name="schedule" value="<?php echo $row['schedule']; ?>"></td>
-                <td><input type="number" name="branch_id" value="<?php echo $row['branch_id']; ?>"></td>
+                <td><?php echo $row['branch_name'] ?? 'No Branch'; ?><input type="hidden" name="branch_id" value="<?php echo $row['branch_id']; ?>"></td>
                 <td>
-                    <button class="btn" type="submit">Edit</button>
-                    <a class="btn" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete instructor?');">Delete</a>
+                    <button class="btn" type="submit">✏️ Update</button>
+                    <a class="btn btn-danger" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete instructor?');">🗑️ Delete</a>
                 </td>
                 </form>
             </tr>

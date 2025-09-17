@@ -14,10 +14,10 @@ session_start();
         <h1>Origin Driving School Online Management System</h1>
     </header>
     <nav>
-        <a href="index.php">Home</a>
-        <a href="login.php">Login</a>
-        <a href="register.php">Register</a>
-        <a href="dashboard.php">Dashboard</a>
+        <a href="index.php">🏠 Home</a>
+        <a href="login.php">🔐 Login</a>
+        <a href="register.php">📝 Register</a>
+        <a href="test_setup.php">🔧 Test Setup</a>
     </nav>
     <div class="container">
         <h2>🚗 Welcome to Origin Driving School!</h2>

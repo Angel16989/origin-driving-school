@@ -14,7 +14,7 @@ if ($action === 'pay' && isset($_GET['id'])) {
     header('Location: invoices.php');
     exit;
 }
-$res = $conn->query('SELECT * FROM invoices');
+$res = $conn->query('SELECT i.*, s.name as student_name FROM invoices i LEFT JOIN students s ON i.student_id = s.id');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,9 +26,13 @@ $res = $conn->query('SELECT * FROM invoices');
 <body>
     <header><h1>Invoices</h1></header>
     <nav>
-        <a href="../dashboard.php">Dashboard</a>
-        <a href="invoices.php">Invoices</a>
-        <a href="../php/logout.php">Logout</a>
+        <a href="../dashboard.php">🏠 Dashboard</a>
+        <a href="students.php">👥 Students</a>
+        <a href="instructors.php">👨‍🏫 Instructors</a>
+        <a href="bookings.php">📅 Bookings</a>
+        <a href="invoices.php">💰 Invoices</a>
+        <a href="messages.php">💬 Messages</a>
+        <a href="logout.php">🚪 Logout</a>
     </nav>
     <div class="container">
         <h2>Invoice List</h2>
@@ -37,7 +41,7 @@ $res = $conn->query('SELECT * FROM invoices');
             <?php while($row = $res->fetch_assoc()): ?>
             <tr>
                 <td><?php echo $row['id']; ?></td>
-                <td><?php echo $row['student_id']; ?></td>
+                <td><?php echo $row['student_name'] ?? 'Unknown'; ?></td>
                 <td>$<?php echo number_format($row['amount'],2); ?></td>
                 <td><?php echo $row['status']; ?></td>
                 <td><?php echo $row['created_at']; ?></td>
