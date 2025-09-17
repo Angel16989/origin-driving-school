@@ -65,7 +65,7 @@ $res = $conn->query('SELECT * FROM students');
             <div class="form-group"><label>Phone</label><input type="text" name="phone" required></div>
             <div class="form-group"><label>License No</label><input type="text" name="license_no" required></div>
             <div class="form-group"><label>Progress</label><input type="text" name="progress" required></div>
-            <button class="btn" type="submit">Add Student</button>
+            <button class="btn" type="submit">➕ Add Student</button>
         </form>
         <h2>Student List</h2>
         <table class="table">
@@ -80,8 +80,8 @@ $res = $conn->query('SELECT * FROM students');
                 <td><input type="text" name="license_no" value="<?php echo $row['license_no']; ?>"></td>
                 <td><input type="text" name="progress" value="<?php echo $row['progress']; ?>"></td>
                 <td>
-                    <button class="btn" type="submit">Edit</button>
-                    <a class="btn" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete student?');">Delete</a>
+                    <button class="btn" type="submit">✏️ Update</button>
+                    <a class="btn btn-danger" href="?action=delete&id=<?php echo $row['id']; ?>" onclick="return confirm('Delete student?');">🗑️ Delete</a>
                 </td>
                 </form>
             </tr>

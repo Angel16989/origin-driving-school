@@ -43,9 +43,9 @@ $res = $conn->query('SELECT * FROM invoices');
                 <td><?php echo $row['created_at']; ?></td>
                 <td>
                     <?php if($row['status'] === 'Unpaid'): ?>
-                        <a class="btn" href="?action=pay&id=<?php echo $row['id']; ?>">Mark as Paid</a>
+                        <a class="btn btn-success" href="?action=pay&id=<?php echo $row['id']; ?>">💳 Mark as Paid</a>
                     <?php else: ?>
-                        Paid
+                        <span style="color: var(--success-color); font-weight: 600;">✅ Paid</span>
                     <?php endif; ?>
                 </td>
             </tr>

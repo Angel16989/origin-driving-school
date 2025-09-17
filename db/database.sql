@@ -19,9 +19,9 @@ CREATE TABLE users (
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO users (username, password, role) VALUES
-('admin', '$2y$10$abcdefghijklmnopqrstuv', 'admin'),
-('student1', '$2y$10$abcdefghijklmnopqrstuv', 'student'),
-('instructor1', '$2y$10$abcdefghijklmnopqrstuv', 'instructor');
+('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin'),
+('student1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'student'),
+('instructor1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'instructor');
 
 -- Students
 CREATE TABLE students (

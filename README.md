@@ -1,5 +1,12 @@
 # Origin Driving School Online Management System
 
+## Modern Design Features
+- 🎨 **Beautiful Modern UI** - Gradient backgrounds, smooth animations, and professional styling
+- 📱 **Fully Responsive** - Works perfectly on desktop, tablet, and mobile devices  
+- ✨ **Interactive Elements** - Hover effects, button animations, and smooth transitions
+- 🎭 **Professional Color Scheme** - Carefully chosen colors for optimal user experience
+- 🚀 **Performance Optimized** - Clean CSS with hardware-accelerated animations
+
 ## Setup Instructions
 
 1. Import `db/database.sql` into phpMyAdmin (create a new database, e.g., `origin_driving_school`).
@@ -7,9 +14,9 @@
 3. Start Apache and MySQL from XAMPP Control Panel.
 4. Access the site via [http://localhost/Groupprojectdevelopingweb](http://localhost/Groupprojectdevelopingweb).
 5. Login with sample credentials:
-   - **Admin:** admin / admin123
-   - **Student:** student1 / student123
-   - **Instructor:** instructor1 / instructor123
+   - **Admin:** admin / password
+   - **Student:** student1 / password  
+   - **Instructor:** instructor1 / password
 
 ## Project Structure
 - `/css/styles.css` - Main stylesheet

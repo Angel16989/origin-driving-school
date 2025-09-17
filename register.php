@@ -70,9 +70,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label>Password</label>
                 <input type="password" name="password" required>
             </div>
-            <button class="btn" type="submit">Register</button>
+            <button class="btn" type="submit">📝 Register</button>
         </form>
-        <p style="color:green;"> <?php echo $msg; ?> </p>
+        <?php if($msg): ?>
+        <div class="message <?php echo (strpos($msg, 'successful') !== false) ? 'success' : 'error'; ?>"><?php echo $msg; ?></div>
+        <?php endif; ?>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p>Already have an account? <a href="login.php" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">Login here</a></p>
+        </div>
     </div>
     <footer>&copy; 2025 Origin Driving School</footer>
 </body>

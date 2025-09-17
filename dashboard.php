@@ -43,21 +43,33 @@ $stats['revenue'] = $row['total'] ? $row['total'] : 0.00;
         <a href="php/logout.php">Logout</a>
     </nav>
     <div class="container">
-        <h2>Statistics</h2>
-        <ul>
-            <li>Total Students: <?php echo $stats['students']; ?></li>
-            <li>Total Instructors: <?php echo $stats['instructors']; ?></li>
-            <li>Total Bookings: <?php echo $stats['bookings']; ?></li>
-            <li>Total Revenue: $<?php echo number_format($stats['revenue'],2); ?></li>
-        </ul>
-        <h3>Quick Links</h3>
-        <ul>
-            <li><a href="php/students.php">Manage Students</a></li>
-            <li><a href="php/instructors.php">Manage Instructors</a></li>
-            <li><a href="php/bookings.php">Manage Bookings</a></li>
-            <li><a href="php/invoices.php">Manage Invoices</a></li>
-            <li><a href="php/messages.php">Messages</a></li>
-        </ul>
+        <h2>Dashboard Overview</h2>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number"><?php echo $stats['students']; ?></div>
+                <div class="stat-label">Students</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number"><?php echo $stats['instructors']; ?></div>
+                <div class="stat-label">Instructors</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number"><?php echo $stats['bookings']; ?></div>
+                <div class="stat-label">Bookings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$<?php echo number_format($stats['revenue'],0); ?></div>
+                <div class="stat-label">Revenue</div>
+            </div>
+        </div>
+        <h3>Quick Navigation</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
+            <a href="php/students.php" class="btn">👥 Manage Students</a>
+            <a href="php/instructors.php" class="btn">👨‍🏫 Manage Instructors</a>
+            <a href="php/bookings.php" class="btn">📅 Manage Bookings</a>
+            <a href="php/invoices.php" class="btn btn-success">💰 Manage Invoices</a>
+            <a href="php/messages.php" class="btn">💬 Messages</a>
+        </div>
     </div>
     <footer>&copy; 2025 Origin Driving School</footer>
 </body>

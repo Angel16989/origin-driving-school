@@ -47,9 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <label>Password</label>
                 <input type="password" name="password" required>
             </div>
-            <button class="btn" type="submit">Login</button>
+            <button class="btn" type="submit">🔐 Login</button>
         </form>
-        <p style="color:red;"> <?php echo $msg; ?> </p>
+        <?php if($msg): ?>
+        <div class="message error"><?php echo $msg; ?></div>
+        <?php endif; ?>
+        <div style="text-align: center; margin-top: 1.5rem;">
+            <p>Don't have an account? <a href="register.php" style="color: var(--secondary-color); text-decoration: none; font-weight: 600;">Register here</a></p>
+        </div>
     </div>
     <footer>&copy; 2025 Origin Driving School</footer>
 </body>
