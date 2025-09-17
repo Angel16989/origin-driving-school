@@ -1,11 +1,11 @@
 <?php
-// students.php - Manage Students
+// students.php - Manage Students (Admin Only)
 session_start();
 require_once 'db_connect.php';
-if (!isset($_SESSION['user_id'])) {
-    header('Location: ../login.php');
-    exit;
-}
+require_once 'role_nav.php';
+
+checkRoleAccess(['admin'], $_SESSION['role']);
+
 // CRUD operations
 $action = $_GET['action'] ?? '';
 if ($action === 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -51,16 +51,8 @@ $res = $conn->query('SELECT * FROM students');
     <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-    <header><h1>Students</h1></header>
-    <nav>
-        <a href="../dashboard.php">🏠 Dashboard</a>
-        <a href="students.php">👥 Students</a>
-        <a href="instructors.php">👨‍🏫 Instructors</a>
-        <a href="bookings.php">📅 Bookings</a>
-        <a href="invoices.php">💰 Invoices</a>
-        <a href="messages.php">💬 Messages</a>
-        <a href="logout.php">🚪 Logout</a>
-    </nav>
+    <header><h1>👥 Student Management</h1><p>Admin-only student management system</p></header>
+    <?php renderNavigation($_SESSION['role']); ?>
     <div class="container">
         <h2>Add Student</h2>
         <form method="post" action="?action=add">
