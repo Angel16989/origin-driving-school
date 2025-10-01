@@ -37,7 +37,7 @@ session_start();
             <div style="display: flex; gap: 2rem; align-items: center;">
                 <a href="#about" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
                 <a href="#services" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
-                <a href="instructors.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
+                <a href="#instructors" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
                 <a href="#contact" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
                 <a href="login.php" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 0.9rem; padding: 0.8rem 1.5rem;">Student Portal</a>
             </div>
@@ -287,65 +287,7 @@ session_start();
         </div>
     </section>
 
-    <!-- Group Members Section (DWIN309 Requirement) -->
-    <section id="team" style="background: white; padding: 4rem 2rem;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 1rem; color: var(--dashboard-blue);">👥 Development Team</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 3rem; font-size: 1.1rem;">Meet the team behind Origin Driving School Management System</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                <!-- Member 1 -->
-                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--dashboard-blue), #40407a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; color: white;">�‍💻</div>
-                    <h3 style="margin-bottom: 0.5rem; color: var(--dashboard-blue);">Ms Isha Shrestha</h3>
-                    <p style="color: #666; margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Student ID:</strong> K241002</p>
-                    <div style="background: white; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
-                        <p style="margin: 0; font-weight: 600; color: var(--dashboard-blue); margin-bottom: 0.5rem;">Implemented:</p>
-                        <ul style="text-align: left; color: #666; font-size: 0.9rem; line-height: 1.6;">
-                            <li>Student Management Module</li>
-                            <li>User Registration & Authentication</li>
-                            <li>Database Design & Setup</li>
-                            <li>Frontend UI/UX Design</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Member 2 -->
-                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--dashboard-blue), #40407a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; color: white;">👨‍💻</div>
-                    <h3 style="margin-bottom: 0.5rem; color: var(--dashboard-blue);">Mr Rojan Shrestha</h3>
-                    <p style="color: #666; margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Student ID:</strong> K240867</p>
-                    <div style="background: white; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
-                        <p style="margin: 0; font-weight: 600; color: var(--dashboard-blue); margin-bottom: 0.5rem;">Implemented:</p>
-                        <ul style="text-align: left; color: #666; font-size: 0.9rem; line-height: 1.6;">
-                            <li>Instructor Management System</li>
-                            <li>Scheduling & Booking Module</li>
-                            <li>Backend PHP Logic</li>
-                            <li>Security Implementation</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Member 3 -->
-                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--dashboard-blue), #40407a); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; color: white;">👨‍💻</div>
-                    <h3 style="margin-bottom: 0.5rem; color: var(--dashboard-blue);">Mr Rasik Tiwari</h3>
-                    <p style="color: #666; margin-bottom: 0.5rem; font-size: 0.9rem;"><strong>Student ID:</strong> K240750</p>
-                    <div style="background: white; padding: 1rem; border-radius: 10px; margin-top: 1rem;">
-                        <p style="margin: 0; font-weight: 600; color: var(--dashboard-blue); margin-bottom: 0.5rem;">Implemented:</p>
-                        <ul style="text-align: left; color: #666; font-size: 0.9rem; line-height: 1.6;">
-                            <li>Financial Management Module</li>
-                            <li>Reports & Analytics System</li>
-                            <li>Communication Features</li>
-                            <li>Testing & Documentation</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer (DWIN309 Compliant) -->
+    <!-- Footer -->
     <footer style="background: var(--road-dark); color: white; padding: 3rem 2rem 2rem; text-align: center;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 2rem;">
@@ -355,20 +297,12 @@ session_start();
                     <p style="margin: 0; opacity: 0.8;">Professional Driving Education</p>
                 </div>
             </div>
-            
-            <!-- DWIN309 Required Footer Text -->
-            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
-                <p style="margin: 0; font-size: 1rem; line-height: 1.6;">
-                    This website was created by <strong>Ms Isha Shrestha (K241002), Mr Rojan Shrestha (K240867), and Mr Rasik Tiwari (K240750)</strong> for the final assessment of <strong>DWIN309</strong> at <strong>Kent Institute Australia</strong>.
-                </p>
-            </div>
-            
             <div style="border-top: 1px solid rgba(255,255,255,0.2); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-                <p style="margin: 0; opacity: 0.8;">&copy; 2025 Origin Driving School. All rights reserved.</p>
+                <p style="margin: 0; opacity: 0.8;">&copy; 2024 Origin Driving School. All rights reserved.</p>
                 <div style="display: flex; gap: 2rem;">
-                    <a href="privacy-policy.php" style="color: rgba(255,255,255,0.8); text-decoration: none;">Privacy Policy</a>
-                    <a href="terms-of-service.php" style="color: rgba(255,255,255,0.8); text-decoration: none;">Terms of Service</a>
-                    <a href="contact.php" style="color: rgba(255,255,255,0.8); text-decoration: none;">Contact</a>
+                    <a href="test_setup.php" style="color: rgba(255,255,255,0.8); text-decoration: none;">System Status</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Privacy Policy</a>
+                    <a href="#" style="color: rgba(255,255,255,0.8); text-decoration: none;">Terms of Service</a>
                 </div>
             </div>
         </div>

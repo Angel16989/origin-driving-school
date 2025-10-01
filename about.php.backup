@@ -1,0 +1,933 @@
+<?php<!DOCTYPE html><?php<?php<?php
+
+session_start();
+
+?><html lang="en">
+
+<!DOCTYPE html>
+
+<html lang="en"><head>session_start();
+
+<head>
+
+    <meta charset="UTF-8">    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us - Origin Driving School</title>    <meta name="viewport" content="width=device-width, initial-scale=1.0">$page_title = 'Origin Driving School - Learn to Drive with Confidence';session_start();session_start();
+
+    <link rel="stylesheet" href="css/modern.css">
+
+    <style>    <title>About Us - Origin Driving School</title>
+
+        body {
+
+            font-family: Arial, sans-serif;    <link rel="stylesheet" href="css/modern.css">$page_description = 'Professional driving instruction with certified instructors. Excellence in driving education is our commitment.';
+
+            margin: 0;
+
+            padding: 0;</head>
+
+            background: #f5f5f5;
+
+        }<body>require_once 'includes/header.php';$page_title = 'About Us - Origin Driving School';$page_title = "About Us - Origin Driving School";
+
+        .navbar {
+
+            background: #0c2461;    <!-- Navigation -->
+
+            padding: 1rem 2rem;
+
+            position: fixed;    <nav class="navbar">?>
+
+            top: 0;
+
+            left: 0;        <div class="nav-container">
+
+            right: 0;
+
+            z-index: 1000;            <a href="about.php" class="nav-logo">require_once 'includes/header.php';$page_description = "Learn about Origin Driving School - Our mission, instructors, and commitment to safe driving education.";
+
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+        }                <div class="nav-logo-icon">🚗</div>
+
+        .navbar-container {
+
+            max-width: 1200px;                <span>Origin Driving</span><!-- Hero Section - Desktop Home Page -->
+
+            margin: 0 auto;
+
+            display: flex;            </a>
+
+            justify-content: space-between;
+
+            align-items: center;            <section style="background: linear-gradient(135deg, var(--dashboard-blue) 0%, #40407a 50%, #2d3561 100%); color: white; padding: 8rem 2rem 6rem; position: relative; overflow: hidden;">?>include 'includes/header.php';
+
+        }
+
+        .logo {            <ul class="nav-menu" id="navMenu">
+
+            color: white;
+
+            font-size: 1.5rem;                <li><a href="about.php" class="nav-link active">Home</a></li>    <!-- Animated Background -->
+
+            font-weight: bold;
+
+            text-decoration: none;                <li><a href="services.php" class="nav-link">Services</a></li>
+
+        }
+
+        .nav-links {                <li><a href="instructors.php" class="nav-link">Instructors</a></li>    <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%); animation: containerGlow 15s ease-in-out infinite; pointer-events: none;"></div>?>
+
+            display: flex;
+
+            gap: 2rem;                <li><a href="contact.php" class="nav-link">Contact</a></li>
+
+            list-style: none;
+
+            margin: 0;                <li><a href="login.php" class="nav-button">Student Portal</a></li>    
+
+            padding: 0;
+
+        }            </ul>
+
+        .nav-links a {
+
+            color: white;                <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;"><!-- About Us Hero Section -->
+
+            text-decoration: none;
+
+            transition: color 0.3s;            <button class="nav-toggle" onclick="toggleMobileMenu()">☰</button>
+
+        }
+
+        .nav-links a:hover {        </div>        <div style="display: inline-block; background: rgba(255, 215, 0, 0.15); backdrop-filter: blur(20px); padding: 0.8rem 2rem; border-radius: 50px; border: 2px solid var(--yellow-line); margin-bottom: 2rem; box-shadow: 0 8px 32px rgba(255, 215, 0, 0.2);">
+
+            color: #ffd700;
+
+        }    </nav>
+
+        .btn-login {
+
+            background: #ffd700;            <span style="font-weight: 700; color: var(--yellow-line); letter-spacing: 2px; text-shadow: 0 2px 10px rgba(255,215,0,0.5);">🎓 WELCOME TO ORIGIN DRIVING SCHOOL</span><section style="background: linear-gradient(135deg, var(--dashboard-blue) 0%, #40407a 50%, #2d3561 100%); color: white; padding: 6rem 2rem 4rem; position: relative; overflow: hidden;">    <!-- Hero Section -->
+
+            color: #0c2461;
+
+            padding: 0.5rem 1.5rem;    <!-- Hero Section -->
+
+            border-radius: 5px;
+
+            text-decoration: none;    <section class="hero">        </div>
+
+            font-weight: bold;
+
+        }        <div class="container">
+
+        .hero {
+
+            background: linear-gradient(135deg, #0c2461 0%, #40407a 100%);            <div class="hero-content">            <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">    <section style="background: linear-gradient(135deg, var(--dashboard-blue) 0%, #40407a 100%); color: white; padding: 6rem 2rem 4rem; position: relative; overflow: hidden;">
+
+            color: white;
+
+            padding: 8rem 2rem 4rem;                <div class="hero-badge">🎓 WELCOME TO ORIGIN DRIVING SCHOOL</div>
+
+            margin-top: 60px;
+
+            text-align: center;                <h1 class="hero-title">Learn to Drive with <span style="color: var(--accent-yellow);">Confidence</span></h1>        <h1 style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.1; text-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+
+        }
+
+        .hero h1 {                <p class="hero-subtitle">Building confident, safe drivers since 2010. Professional instruction, modern vehicles, and proven teaching methods that get results.</p>
+
+            font-size: 3rem;
+
+            margin-bottom: 1rem;                <div class="hero-buttons">            Learn to Drive with <span style="color: var(--yellow-line);">Confidence</span>        <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 900; margin-bottom: 1.5rem;">About Origin Driving School</h1>        <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%); animation: containerGlow 15s ease-in-out infinite; pointer-events: none;"></div>
+
+        }
+
+        .hero p {                    <a href="login.php" class="btn btn-primary btn-lg">🚗 Book a Lesson</a>
+
+            font-size: 1.2rem;
+
+            max-width: 600px;                    <a href="instructors.php" class="btn btn-secondary btn-lg">👨‍🏫 Meet Our Instructors</a>        </h1>
+
+            margin: 0 auto;
+
+        }                </div>
+
+        .section {
+
+            padding: 4rem 2rem;            </div>                <p style="font-size: 1.3rem; opacity: 0.95; max-width: 800px; margin: 0 auto; line-height: 1.8;">        
+
+            max-width: 1200px;
+
+            margin: 0 auto;        </div>
+
+        }
+
+        .section h2 {    </section>        <p style="font-size: 1.4rem; opacity: 0.95; max-width: 850px; margin: 0 auto 3rem; line-height: 1.9; text-shadow: 0 2px 8px rgba(0,0,0,0.3);">
+
+            color: #0c2461;
+
+            font-size: 2rem;
+
+            margin-bottom: 2rem;
+
+            text-align: center;    <!-- Our Story -->            Building confident, safe drivers since our founding. Professional instruction, modern vehicles, and proven teaching methods that get results.            Building confident, safe drivers since our founding. Excellence in driving education is our commitment.        <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+
+        }
+
+        .features {    <section class="section">
+
+            display: grid;
+
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));        <div class="container">        </p>
+
+            gap: 2rem;
+
+            margin-top: 3rem;            <div class="section-header">
+
+        }
+
+        .feature-card {                <span class="section-badge">📖 Our Story</span>                </p>            <div style="font-size: 4rem; margin-bottom: 1rem;">🚗</div>
+
+            background: white;
+
+            padding: 2rem;                <h2 class="section-title">Who We Are</h2>
+
+            border-radius: 10px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);                <p class="section-subtitle">Origin Driving School was founded in 2010 with a simple mission: to provide the highest quality driving education in a supportive, professional environment.</p>        <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+
+            text-align: center;
+
+        }            </div>
+
+        .feature-card h3 {
+
+            color: #0c2461;            <a href="login.php" style="display: inline-block; background: var(--yellow-line); color: var(--dashboard-blue); padding: 1.2rem 3rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.1rem; box-shadow: 0 10px 30px rgba(255,215,0,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 15px 40px rgba(255,215,0,0.5)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(255,215,0,0.3)';">    </div>            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Your Journey to Safe Driving Starts Here</h2>
+
+            margin-bottom: 1rem;
+
+        }            <div class="grid grid-2">
+
+        .stats {
+
+            background: #0c2461;                <div class="card">                🚗 Book a Lesson
+
+            color: white;
+
+            padding: 4rem 2rem;                    <h3>🎯 Our Mission</h3>
+
+            text-align: center;
+
+        }                    <p>To create safe, confident, and responsible drivers through comprehensive education, personalized instruction, and a commitment to excellence that extends far beyond the driver's seat.</p>            </a></section>            <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">At Origin Driving School, we're not just teaching you to drive – we're building confident, responsible drivers who contribute to safer roads for everyone.</p>
+
+        .stats-grid {
+
+            display: grid;                </div>
+
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+            gap: 2rem;                            <a href="instructors.php" style="display: inline-block; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); color: white; padding: 1.2rem 3rem; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 2px solid rgba(255,255,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255,255,255,0.25)'; this.style.transform='translateY(-3px)';" onmouseout="this.style.background='rgba(255,255,255,0.15)'; this.style.transform='translateY(0)';">
+
+            max-width: 1000px;
+
+            margin: 2rem auto 0;                <div class="card">
+
+        }
+
+        .stat-item h3 {                    <h3>👁️ Our Vision</h3>                👨‍🏫 Meet Our Instructors        </div>
+
+            font-size: 3rem;
+
+            color: #ffd700;                    <p>To be the leading driving school recognized for innovation, safety standards, and producing the most well-prepared drivers in the community.</p>
+
+            margin: 0;
+
+        }                </div>            </a>
+
+        .stat-item p {
+
+            font-size: 1.1rem;            </div>
+
+            margin: 0.5rem 0 0;
+
+        }        </div>        </div><!-- About Content -->    </section>
+
+        footer {
+
+            background: #1a1a1a;    </section>
+
+            color: white;
+
+            padding: 2rem;    </div>
+
+            text-align: center;
+
+        }    <!-- Core Values -->
+
+        .footer-info {
+
+            background: rgba(255,255,255,0.1);    <section class="section" style="background: var(--white);"></section><div style="max-width: 1200px; margin: 0 auto; padding: 5rem 2rem;">    
+
+            padding: 1rem;
+
+            border-radius: 5px;        <div class="container">
+
+            margin: 1rem auto;
+
+            max-width: 800px;            <div class="section-header">
+
+        }
+
+    </style>                <span class="section-badge">💎 Our Core Values</span>
+
+</head>
+
+<body>                <h2 class="section-title">What We Stand For</h2><style>        <div class="container">
+
+    <!-- Navigation -->
+
+    <nav class="navbar">            </div>
+
+        <div class="navbar-container">
+
+            <a href="about.php" class="logo">🚗 Origin Driving School</a>    @keyframes containerGlow {
+
+            <ul class="nav-links">
+
+                <li><a href="about.php">About</a></li>            <div class="grid grid-3">
+
+                <li><a href="services.php">Services</a></li>
+
+                <li><a href="instructors.php">Instructors</a></li>                <div class="card">        0%, 100% { transform: rotate(0deg) scale(1); opacity: 1; }    <!-- Our Story -->        
+
+                <li><a href="contact.php">Contact</a></li>
+
+                <li><a href="login.php" class="btn-login">Student Portal</a></li>                    <div class="card-icon">🛡️</div>
+
+            </ul>
+
+        </div>                    <h4 class="card-title">Safety First</h4>        50% { transform: rotate(180deg) scale(1.15); opacity: 0.8; }
+
+    </nav>
+
+                    <p class="card-text">Safety is our top priority in everything we do. We maintain the highest safety standards in our vehicles, instruction methods, and facilities.</p>
+
+    <!-- Hero Section -->
+
+    <section class="hero">                </div>    }    <div style="background: white; padding: 3rem; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); margin-bottom: 3rem;">        <!-- Our Story -->
+
+        <h1>Welcome to Origin Driving School</h1>
+
+        <p>Your journey to confident, safe driving starts here. Professional instruction with a personal touch.</p>
+
+    </section>
+
+                <div class="card"></style>
+
+    <!-- About Section -->
+
+    <section class="section">                    <div class="card-icon">🌟</div>
+
+        <h2>About Us</h2>
+
+        <p style="text-align: center; font-size: 1.1rem; line-height: 1.8; max-width: 800px; margin: 0 auto;">                    <h4 class="card-title">Excellence</h4>        <h2 style="font-size: 2.5rem; color: var(--dashboard-blue); margin-bottom: 1.5rem; font-weight: 800;">Our Story</h2>        <section style="margin: 4rem 0;">
+
+            Origin Driving School has been serving the community for over 15 years, providing top-quality driving education. 
+
+            Our certified instructors are dedicated to helping students become safe, confident drivers. With modern vehicles,                     <p class="card-text">We strive for excellence in every aspect of our service, from our experienced instructors to our modern training vehicles.</p>
+
+            flexible scheduling, and a proven curriculum, we've helped thousands of students pass their driving tests and 
+
+            develop skills for a lifetime of safe driving.                </div><!-- About Content -->
+
+        </p>
+
+
+
+        <div class="features">
+
+            <div class="feature-card">                <div class="card"><div style="max-width: 1200px; margin: 0 auto; padding: 5rem 2rem;">        <p style="font-size: 1.1rem; line-height: 1.9; color: #555; margin-bottom: 1rem;">            <h2 style="text-align: center; margin-bottom: 3rem;">📖 Our Story</h2>
+
+                <h3>✓ Certified Instructors</h3>
+
+                <p>All our instructors are fully licensed and have years of teaching experience.</p>                    <div class="card-icon">🤝</div>
+
+            </div>
+
+            <div class="feature-card">                    <h4 class="card-title">Respect</h4>    
+
+                <h3>📱 Modern Technology</h3>
+
+                <p>Online booking, progress tracking, and digital learning materials.</p>                    <p class="card-text">We treat every student with respect, patience, and understanding, recognizing that everyone learns at their own pace.</p>
+
+            </div>
+
+            <div class="feature-card">                </div>    <!-- Our Story -->            Origin Driving School was founded with a simple mission: to provide the highest quality driving education in a supportive, professional environment. Over the years, we've helped thousands of students gain the skills and confidence needed to become safe, responsible drivers.            
+
+                <h3>🚗 Modern Fleet</h3>
+
+                <p>Well-maintained, safe vehicles equipped with dual controls.</p>
+
+            </div>
+
+            <div class="feature-card">                <div class="card">    <div style="background: white; padding: 3rem; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1); margin-bottom: 3rem;">
+
+                <h3>⭐ Flexible Schedule</h3>
+
+                <p>7-day availability with morning, afternoon, and evening slots.</p>                    <div class="card-icon">💡</div>
+
+            </div>
+
+            <div class="feature-card">                    <h4 class="card-title">Innovation</h4>        <h2 style="font-size: 2.5rem; color: var(--dashboard-blue); margin-bottom: 1.5rem; font-weight: 800;">Our Story</h2>        </p>            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; align-items: center;">
+
+                <h3>🎓 Proven Results</h3>
+
+                <p>98% pass rate and thousands of satisfied students.</p>                    <p class="card-text">We embrace modern teaching methods and technology to provide the most effective learning experience possible.</p>
+
+            </div>
+
+            <div class="feature-card">                </div>        <p style="font-size: 1.1rem; line-height: 1.9; color: #555; margin-bottom: 1rem;">
+
+                <h3>💰 Affordable Rates</h3>
+
+                <p>Competitive pricing with packages to suit every budget.</p>
+
+            </div>
+
+        </div>                <div class="card">            Origin Driving School was founded with a simple mission: to provide the highest quality driving education in a supportive, professional environment. Over the years, we've helped thousands of students gain the skills and confidence needed to become safe, responsible drivers.        <p style="font-size: 1.1rem; line-height: 1.9; color: #555;">                <div>
+
+    </section>
+
+                    <div class="card-icon">🏆</div>
+
+    <!-- Stats Section -->
+
+    <section class="stats">                    <h4 class="card-title">Integrity</h4>        </p>
+
+        <h2 style="color: white;">Our Track Record</h2>
+
+        <div class="stats-grid">                    <p class="card-text">We operate with complete honesty and transparency, building trust through reliable service and ethical practices.</p>
+
+            <div class="stat-item">
+
+                <h3>98%</h3>                </div>        <p style="font-size: 1.1rem; line-height: 1.9; color: #555;">            Our team of certified instructors brings decades of combined experience, using modern teaching methods and state-of-the-art vehicles to ensure every student receives personalized attention and comprehensive training.                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #007bff;">
+
+                <p>Pass Rate</p>
+
+            </div>
+
+            <div class="stat-item">
+
+                <h3>5000+</h3>                <div class="card">            Our team of certified instructors brings decades of combined experience, using modern teaching methods and state-of-the-art vehicles to ensure every student receives personalized attention and comprehensive training.
+
+                <p>Happy Students</p>
+
+            </div>                    <div class="card-icon">💚</div>
+
+            <div class="stat-item">
+
+                <h3>50+</h3>                    <h4 class="card-title">Community</h4>        </p>        </p>                        <h3>🌟 Founded in 2010</h3>
+
+                <p>Expert Instructors</p>
+
+            </div>                    <p class="card-text">We're committed to making our community safer through responsible driver education and local safety initiatives.</p>
+
+            <div class="stat-item">
+
+                <h3>15+</h3>                </div>    </div>
+
+                <p>Years Experience</p>
+
+            </div>            </div>
+
+        </div>
+
+    </section>        </div>    </div>                        <p>Origin Driving School was founded with a simple mission: to provide the highest quality driver education that prioritizes safety, confidence, and responsibility. What started as a small local driving school has grown into a trusted institution serving thousands of students.</p>
+
+
+
+    <!-- Call to Action -->    </section>
+
+    <section class="section" style="text-align: center; background: white;">
+
+        <h2>Ready to Start Your Journey?</h2>    <!-- Mission & Values -->
+
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Join thousands of successful students who learned with us!</p>
+
+        <a href="register.php" style="background: #ffd700; color: #0c2461; padding: 1rem 3rem; border-radius: 5px; text-decoration: none; font-size: 1.1rem; font-weight: bold; display: inline-block;">Enroll Now</a>    <!-- Stats Section -->
+
+    </section>
+
+    <section class="section">    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">                        
+
+    <!-- Footer -->
+
+    <footer>        <div class="container">
+
+        <h3>Origin Driving School</h3>
+
+        <p>Professional Driving Education</p>            <div class="section-header">        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);">
+
+        
+
+        <div class="footer-info">                <span class="section-badge">📊 Our Track Record</span>
+
+            <p>This website was created by <strong>Ms Isha Shrestha (K241002), Mr Rojan Shrestha (K240867), and Mr Rasik Tiwari (K240750)</strong> for the final assessment of <strong>DWIN309</strong> at <strong>Kent Institute Australia</strong>.</p>
+
+        </div>                <h2 class="section-title">Proven Results</h2>            <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>    <!-- Mission & Values -->                        <h3 style="margin-top: 2rem;">🎯 Our Mission</h3>
+
+        
+
+        <p>&copy; 2025 Origin Driving School. All rights reserved.</p>            </div>
+
+        <p>
+
+            <a href="privacy-policy.php" style="color: #ffd700; margin: 0 1rem;">Privacy Policy</a>            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Mission</h3>
+
+            <a href="terms-of-service.php" style="color: #ffd700; margin: 0 1rem;">Terms of Service</a>
+
+            <a href="contact.php" style="color: #ffd700; margin: 0 1rem;">Contact</a>            <div class="stats-grid">
+
+        </p>
+
+    </footer>                <div class="stat-card">            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">                        <p>To create safe, confident, and responsible drivers through comprehensive education, personalized instruction, and a commitment to excellence that extends far beyond the driver's seat.</p>
+
+</body>
+
+</html>                    <div class="stat-number">10+</div>
+
+
+                    <div class="stat-label">Years Experience</div>                To empower every student with the knowledge, skills, and confidence to become safe, responsible drivers for life.
+
+                </div>
+
+            </p>        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(102, 126, 234, 0.3);">                    </div>
+
+                <div class="stat-card">
+
+                    <div class="stat-number">15,000+</div>        </div>
+
+                    <div class="stat-label">Students Trained</div>
+
+                </div>                    <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>                </div>
+
+
+
+                <div class="stat-card">        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(240, 147, 251, 0.3);">
+
+                    <div class="stat-number">98%</div>
+
+                    <div class="stat-label">Pass Rate</div>            <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Mission</h3>                
+
+                </div>
+
+            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Values</h3>
+
+                <div class="stat-card">
+
+                    <div class="stat-number">9</div>            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">                <div>
+
+                    <div class="stat-label">Expert Instructors</div>
+
+                </div>                Safety first, patience always, excellence in every lesson. We believe in building lasting relationships with our students.
+
+
+
+                <div class="stat-card">            </p>                To empower every student with the knowledge, skills, and confidence to become safe, responsible drivers for life.                    <div style="background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%); padding: 2rem; border-radius: 15px; border-left: 5px solid #28a745;">
+
+                    <div class="stat-number">4.9★</div>
+
+                    <div class="stat-label">Customer Rating</div>        </div>
+
+                </div>
+
+            </div>                    </p>                        <h3>🏆 Our Achievements</h3>
+
+        </div>
+
+    </section>        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);">
+
+
+
+    <!-- Call to Action -->            <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>        </div>                        <ul style="list-style: none; padding: 0;">
+
+    <section class="section" style="background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)); color: var(--white);">
+
+        <div class="container text-center">            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Promise</h3>
+
+            <h2 style="color: var(--white); font-size: var(--font-size-4xl); margin-bottom: var(--spacing-md);">Ready to Start Your Driving Journey?</h2>
+
+            <p style="color: var(--white); font-size: var(--font-size-lg); opacity: 0.95; margin-bottom: var(--spacing-xl);">Join thousands of satisfied students who have chosen Origin Driving School for their driver education needs.</p>            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">                                    <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+
+            <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+
+                <a href="login.php" class="btn btn-primary btn-lg">📝 Register Now</a>                Professional instruction, modern vehicles, flexible scheduling, and a commitment to your success every step of the way.
+
+                <a href="contact.php" class="btn btn-secondary btn-lg">📞 Contact Us</a>
+
+                <a href="services.php" class="btn btn-secondary btn-lg">💰 View Services</a>            </p>        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(240, 147, 251, 0.3);">                                <span style="position: absolute; left: 0; top: 0;">✅</span>
+
+            </div>
+
+        </div>        </div>
+
+    </section>
+
+    </div>            <div style="font-size: 3rem; margin-bottom: 1rem;">💎</div>                                Over 15,000 students successfully trained
+
+    <!-- Footer -->
+
+    <footer class="footer">
+
+        <div class="container">
+
+            <div class="footer-content">    <!-- Team Stats -->            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Values</h3>                            </li>
+
+                <div class="footer-section">
+
+                    <h3>Origin Driving School</h3>    <div style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); padding: 3rem; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);">
+
+                    <p>Building confident, safe drivers since 2010.</p>
+
+                    <p style="margin-top: var(--spacing-md);">📞 (555) 123-4567<br>📧 info@origindriving.com</p>        <h2 style="font-size: 2.5rem; color: var(--dashboard-blue); margin-bottom: 2rem; font-weight: 800; text-align: center;">Why Choose Us</h2>            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">                            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+
+                </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">
+
+                <div class="footer-section">
+
+                    <h3>Quick Links</h3>            <div>                Safety first, patience always, excellence in every lesson. We believe in building lasting relationships with our students.                                <span style="position: absolute; left: 0; top: 0;">🏅</span>
+
+                    <ul>
+
+                        <li><a href="about.php">Home</a></li>                <div style="font-size: 3rem; font-weight: 900; color: #667eea; margin-bottom: 0.5rem;">10+</div>
+
+                        <li><a href="services.php">Services</a></li>
+
+                        <li><a href="instructors.php">Instructors</a></li>                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Years Experience</p>            </p>                                98% first-time pass rate on driving tests
+
+                        <li><a href="contact.php">Contact</a></li>
+
+                    </ul>            </div>
+
+                </div>
+
+            <div>        </div>                            </li>
+
+                <div class="footer-section">
+
+                    <h3>Services</h3>                <div style="font-size: 3rem; font-weight: 900; color: #f5576c; margin-bottom: 0.5rem;">5000+</div>
+
+                    <ul>
+
+                        <li><a href="services.php">Beginner's Course</a></li>                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Students Trained</p>                                    <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+
+                        <li><a href="services.php">Refresher Lessons</a></li>
+
+                        <li><a href="services.php">Road Test Prep</a></li>            </div>
+
+                        <li><a href="services.php">International Students</a></li>
+
+                    </ul>            <div>        <div style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(79, 172, 254, 0.3);">                                <span style="position: absolute; left: 0; top: 0;">⭐</span>
+
+                </div>
+
+                <div style="font-size: 3rem; font-weight: 900; color: #4facfe; margin-bottom: 0.5rem;">98%</div>
+
+                <div class="footer-section">
+
+                    <h3>Office Hours</h3>                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Pass Rate</p>            <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>                                4.9/5 average customer satisfaction rating
+
+                    <p>Monday - Friday: 8:00 AM - 6:00 PM<br>
+
+                    Saturday: 9:00 AM - 4:00 PM<br>            </div>
+
+                    Sunday: Closed</p>
+
+                </div>            <div>            <h3 style="font-size: 1.8rem; margin-bottom: 1rem; font-weight: 700;">Our Promise</h3>                            </li>
+
+            </div>
+
+                <div style="font-size: 3rem; font-weight: 900; color: #43e97b; margin-bottom: 0.5rem;">9</div>
+
+            <div class="footer-bottom">
+
+                <p>&copy; 2024 Origin Driving School. All rights reserved. | Team: Ms Isha Shrestha (K241002), Mr Rojan Shrestha (K240867), Mr Rasik Tiwari (K240750)</p>                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Expert Instructors</p>            <p style="font-size: 1rem; line-height: 1.7; opacity: 0.95;">                            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+
+            </div>
+
+        </div>            </div>
+
+    </footer>
+
+        </div>                Professional instruction, modern vehicles, flexible scheduling, and a commitment to your success every step of the way.                                <span style="position: absolute; left: 0; top: 0;">🎓</span>
+
+    <script>
+
+        function toggleMobileMenu() {    </div>
+
+            const navMenu = document.getElementById('navMenu');
+
+            navMenu.classList.toggle('active');            </p>                                State-certified and fully licensed
+
+        }
+
+</div>
+
+        // Close mobile menu when clicking outside
+
+        document.addEventListener('click', function(event) {        </div>                            </li>
+
+            const navMenu = document.getElementById('navMenu');
+
+            const navToggle = document.querySelector('.nav-toggle');<?php require_once 'includes/footer.php'; ?>
+
+            
+
+            if (!navMenu.contains(event.target) && !navToggle.contains(event.target)) {    </div>                            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+
+                navMenu.classList.remove('active');
+
+            }                                <span style="position: absolute; left: 0; top: 0;">🚗</span>
+
+        });
+
+    <!-- Team Stats -->                                Modern, well-maintained training fleet
+
+        // Smooth scroll for anchor links
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {    <div style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%); padding: 3rem; border-radius: 25px; box-shadow: 0 15px 50px rgba(0,0,0,0.1);">                            </li>
+
+            anchor.addEventListener('click', function (e) {
+
+                e.preventDefault();        <h2 style="font-size: 2.5rem; color: var(--dashboard-blue); margin-bottom: 2rem; font-weight: 800; text-align: center;">Why Choose Us</h2>                        </ul>
+
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (target) {        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; text-align: center;">                    </div>
+
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                }            <div>                </div>
+
+            });
+
+        });                <div style="font-size: 3rem; font-weight: 900; color: #667eea; margin-bottom: 0.5rem;">10+</div>            </div>
+
+    </script>
+
+</body>                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Years Experience</p>        </section>
+
+</html>
+
+            </div>        
+
+            <div>        <!-- Our Values -->
+
+                <div style="font-size: 3rem; font-weight: 900; color: #f5576c; margin-bottom: 0.5rem;">5000+</div>        <section style="margin: 4rem 0;">
+
+                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Students Trained</p>            <h2 style="text-align: center; margin-bottom: 3rem;">💎 Our Core Values</h2>
+
+            </div>            
+
+            <div>            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+
+                <div style="font-size: 3rem; font-weight: 900; color: #4facfe; margin-bottom: 0.5rem;">98%</div>                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+
+                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Pass Rate</p>                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+
+            </div>                    <h3>Safety First</h3>
+
+            <div>                    <p>Safety is our top priority in everything we do. We maintain the highest safety standards in our vehicles, instruction methods, and facilities.</p>
+
+                <div style="font-size: 3rem; font-weight: 900; color: #43e97b; margin-bottom: 0.5rem;">9</div>                </div>
+
+                <p style="color: #666; font-size: 1.1rem; font-weight: 600;">Expert Instructors</p>                
+
+            </div>                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+
+        </div>                    <div style="font-size: 3rem; margin-bottom: 1rem;">🌟</div>
+
+    </div>                    <h3>Excellence</h3>
+
+                    <p>We strive for excellence in every aspect of our service, from our experienced instructors to our modern training vehicles and comprehensive curriculum.</p>
+
+</div>                </div>
+
+                
+
+<?php require_once 'includes/footer.php'; ?>                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🤝</div>
+                    <h3>Respect</h3>
+                    <p>We treat every student with respect, patience, and understanding, recognizing that everyone learns at their own pace and in their own way.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💡</div>
+                    <h3>Innovation</h3>
+                    <p>We embrace modern teaching methods and technology to provide the most effective and engaging learning experience possible.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
+                    <h3>Integrity</h3>
+                    <p>We operate with complete honesty and transparency, building trust through reliable service and ethical business practices.</p>
+                </div>
+                
+                <div style="background: white; padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">💚</div>
+                    <h3>Community</h3>
+                    <p>We're committed to making our community safer through responsible driver education and active participation in local safety initiatives.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Meet Our Team -->
+        <section style="margin: 4rem 0;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">👥 Meet Our Expert Team</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">👨‍💼</div>
+                    <h3>Mike Johnson</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 1rem;">Chief Instructor & Founder</p>
+                    <p>With over 20 years of driving instruction experience and a background in traffic safety, Mike founded Origin Driving School to revolutionize driver education with a focus on safety and confidence building.</p>
+                    <div style="margin: 1rem 0;">
+                        <span style="background: var(--success-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">Certified Instructor</span>
+                        <span style="background: var(--info-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">Safety Specialist</span>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #28a745 0%, #20c997 100%); border-radius: 50%; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">👩‍🏫</div>
+                    <h3>Sarah Williams</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 1rem;">Senior Driving Instructor</p>
+                    <p>Sarah specializes in working with nervous and anxious drivers, using patience and proven techniques to build confidence behind the wheel. She has successfully trained over 3,000 students.</p>
+                    <div style="margin: 1rem 0;">
+                        <span style="background: var(--warning-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">Anxiety Specialist</span>
+                        <span style="background: var(--success-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">15 Years Experience</span>
+                    </div>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center;">
+                    <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #007bff 0%, #6f42c1 100%); border-radius: 50%; margin: 0 auto 2rem auto; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">👨‍🏫</div>
+                    <h3>David Chen</h3>
+                    <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 1rem;">Technology & Innovation Director</p>
+                    <p>David leads our technology initiatives and online learning platforms. He combines traditional driving instruction with modern digital tools to enhance the learning experience.</p>
+                    <div style="margin: 1rem 0;">
+                        <span style="background: var(--info-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">Tech Innovation</span>
+                        <span style="background: var(--secondary-color); color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; margin: 0.2rem;">Digital Learning</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Facilities -->
+        <section style="margin: 4rem 0;">
+            <h2 style="text-align: center; margin-bottom: 3rem;">🏢 Our Facilities & Fleet</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem;">
+                <div style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%); padding: 2rem; border-radius: 15px;">
+                    <h3>🚗 Modern Training Vehicles</h3>
+                    <ul style="margin: 1rem 0;">
+                        <li>Dual-control safety systems</li>
+                        <li>Regular maintenance and safety inspections</li>
+                        <li>Latest safety technology and features</li>
+                        <li>Comfortable, stress-free learning environment</li>
+                        <li>Variety of vehicle types for different learning needs</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #e7f3ff 0%, #cce7ff 100%); padding: 2rem; border-radius: 15px;">
+                    <h3>🏫 Classroom Facilities</h3>
+                    <ul style="margin: 1rem 0;">
+                        <li>Modern, comfortable classrooms</li>
+                        <li>Interactive learning technology</li>
+                        <li>Small class sizes for personalized attention</li>
+                        <li>Flexible scheduling options</li>
+                        <li>Online learning platform access</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%); padding: 2rem; border-radius: 15px;">
+                    <h3>🛣️ Practice Areas</h3>
+                    <ul style="margin: 1rem 0;">
+                        <li>Safe, controlled practice environments</li>
+                        <li>Various road conditions and scenarios</li>
+                        <li>Parking practice areas</li>
+                        <li>Highway and city driving routes</li>
+                        <li>Test route familiarization</li>
+                    </ul>
+                </div>
+                
+                <div style="background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%); padding: 2rem; border-radius: 15px;">
+                    <h3>💻 Digital Platform</h3>
+                    <ul style="margin: 1rem 0;">
+                        <li>24/7 online scheduling system</li>
+                        <li>Progress tracking and reporting</li>
+                        <li>Direct instructor communication</li>
+                        <li>Digital learning materials</li>
+                        <li>Mobile-friendly interface</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Why Choose Us -->
+        <section style="margin: 4rem 0;">
+            <div style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; padding: 3rem 2rem; border-radius: 20px; text-align: center;">
+                <h2 style="margin-bottom: 2rem;">🌟 Why Choose Origin Driving School?</h2>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>📊 Proven Results</h3>
+                        <p>98% first-time pass rate and over 15,000 successful graduates speak to our effective teaching methods.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>👨‍🏫 Expert Instructors</h3>
+                        <p>All our instructors are state-certified, experienced professionals committed to your success.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>🕐 Flexible Scheduling</h3>
+                        <p>We work around your schedule with evening, weekend, and online learning options.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>💰 Fair Pricing</h3>
+                        <p>Competitive rates with no hidden fees and flexible payment options available.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>🏆 Quality Guarantee</h3>
+                        <p>We stand behind our instruction with a satisfaction guarantee and ongoing support.</p>
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px;">
+                        <h3>📱 Modern Technology</h3>
+                        <p>State-of-the-art learning platform and vehicles equipped with the latest safety technology.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Call to Action -->
+        <div style="text-align: center; margin: 4rem 0;">
+            <h2 style="margin-bottom: 2rem;">🚗 Ready to Start Your Driving Journey?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Join thousands of satisfied students who have chosen Origin Driving School for their driver education needs.</p>
+            <div>
+                <a href="register.php" class="btn btn-success" style="margin: 0.5rem;">📝 Register Now</a>
+                <a href="contact.php" class="btn" style="margin: 0.5rem;">📞 Contact Us</a>
+                <a href="index.php#services" class="btn" style="margin: 0.5rem;">💰 View Pricing</a>
+            </div>
+        </div>
+    </div>
+    
+<?php include 'includes/footer.php'; ?>

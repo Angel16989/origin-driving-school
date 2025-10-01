@@ -3,34 +3,39 @@
 function getRoleBasedNavigation($role, $current_page = '') {
     $nav_items = [];
     
+    // Detect if we're in a subdirectory (php folder) or root
+    $is_in_php_dir = (strpos($_SERVER['PHP_SELF'], '/php/') !== false);
+    $base_path = $is_in_php_dir ? '../' : '';
+    $php_path = $is_in_php_dir ? '' : 'php/';
+    
     // Common items for all logged-in users
-    $nav_items[] = ['url' => '../dashboard.php', 'label' => '🏠 Dashboard', 'icon' => '🏠'];
+    $nav_items[] = ['url' => $base_path . 'dashboard.php', 'label' => '🏠 Dashboard', 'icon' => '🏠'];
     
     switch($role) {
         case 'admin':
-            $nav_items[] = ['url' => 'students.php', 'label' => '👥 Students', 'icon' => '👥'];
-            $nav_items[] = ['url' => 'instructors.php', 'label' => '👨‍🏫 Instructors', 'icon' => '👨‍🏫'];
-            $nav_items[] = ['url' => 'bookings.php', 'label' => '📅 All Bookings', 'icon' => '📅'];
-            $nav_items[] = ['url' => 'invoices.php', 'label' => '💰 All Invoices', 'icon' => '💰'];
-            $nav_items[] = ['url' => 'messages.php', 'label' => '💬 All Messages', 'icon' => '💬'];
-            $nav_items[] = ['url' => 'reports.php', 'label' => '📊 Reports', 'icon' => '📊'];
+            $nav_items[] = ['url' => $php_path . 'students.php', 'label' => '👥 Students', 'icon' => '👥'];
+            $nav_items[] = ['url' => $php_path . 'instructors.php', 'label' => '👨‍🏫 Instructors', 'icon' => '👨‍🏫'];
+            $nav_items[] = ['url' => $php_path . 'bookings.php', 'label' => '📅 All Bookings', 'icon' => '📅'];
+            $nav_items[] = ['url' => $php_path . 'invoices.php', 'label' => '💰 All Invoices', 'icon' => '💰'];
+            $nav_items[] = ['url' => $php_path . 'messages.php', 'label' => '💬 All Messages', 'icon' => '💬'];
+            $nav_items[] = ['url' => $php_path . 'reports.php', 'label' => '📊 Reports', 'icon' => '📊'];
             break;
             
         case 'instructor':
-            $nav_items[] = ['url' => 'my_schedule.php', 'label' => '📅 My Schedule', 'icon' => '📅'];
-            $nav_items[] = ['url' => 'my_students.php', 'label' => '👥 My Students', 'icon' => '👥'];
-            $nav_items[] = ['url' => 'instructor_messages.php', 'label' => '💬 Messages', 'icon' => '💬'];
+            $nav_items[] = ['url' => $php_path . 'my_schedule.php', 'label' => '📅 My Schedule', 'icon' => '📅'];
+            $nav_items[] = ['url' => $php_path . 'my_students.php', 'label' => '👥 My Students', 'icon' => '👥'];
+            $nav_items[] = ['url' => $php_path . 'instructor_messages.php', 'label' => '💬 Messages', 'icon' => '💬'];
             break;
             
         case 'student':
-            $nav_items[] = ['url' => 'my_profile.php', 'label' => '👤 My Profile', 'icon' => '👤'];
-            $nav_items[] = ['url' => 'my_bookings.php', 'label' => '📅 My Lessons', 'icon' => '📅'];
-            $nav_items[] = ['url' => 'my_invoices.php', 'label' => '💳 My Payments', 'icon' => '💳'];
-            $nav_items[] = ['url' => 'student_messages.php', 'label' => '💬 Messages', 'icon' => '💬'];
+            $nav_items[] = ['url' => $php_path . 'my_profile.php', 'label' => '👤 My Profile', 'icon' => '👤'];
+            $nav_items[] = ['url' => $php_path . 'my_bookings.php', 'label' => '📅 My Lessons', 'icon' => '📅'];
+            $nav_items[] = ['url' => $php_path . 'my_invoices.php', 'label' => '💳 My Payments', 'icon' => '💳'];
+            $nav_items[] = ['url' => $php_path . 'student_messages.php', 'label' => '💬 Messages', 'icon' => '💬'];
             break;
     }
     
-    $nav_items[] = ['url' => 'logout.php', 'label' => '🚪 Logout', 'icon' => '🚪'];
+    $nav_items[] = ['url' => $php_path . 'logout.php', 'label' => '🚪 Logout', 'icon' => '🚪'];
     
     return $nav_items;
 }

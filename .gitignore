@@ -1,0 +1,23 @@
+# PHP
+*.log
+*.tmp
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sensitive files
+config.php
+.env
+
+# Temporary files
+temp/
+cache/
+uploads/
+
+# Database dumps (keeping database.sql for submission)
+# *.sql (commented out to include database.sql)
