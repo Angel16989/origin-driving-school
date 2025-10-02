@@ -40,26 +40,16 @@ if ($action === 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 $res = $conn->query('SELECT i.*, b.name as branch_name FROM instructors i LEFT JOIN branches b ON i.branch_id = b.id');
 $branches = $conn->query('SELECT * FROM branches');
+
+$page_title = "Manage Instructors - Origin Driving School";
+$page_description = "Manage driving school instructors";
+include '../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Instructors</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <header><h1>Instructors</h1></header>
-    <nav>
-        <a href="../dashboard.php">🏠 Dashboard</a>
-        <a href="students.php">👥 Students</a>
-        <a href="instructors.php">👨‍🏫 Instructors</a>
-        <a href="bookings.php">📅 Bookings</a>
-        <a href="invoices.php">💰 Invoices</a>
-        <a href="messages.php">💬 Messages</a>
-        <a href="logout.php">🚪 Logout</a>
-    </nav>
-    <div class="container">
+
+<div class="container" style="margin-top: 6rem; padding: 2rem;">
+    <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">👨‍🏫 Manage Instructors</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
         <h2>Add Instructor</h2>
         <form method="post" action="?action=add">
             <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
@@ -75,7 +65,10 @@ $branches = $conn->query('SELECT * FROM branches');
             </select></div>
             <button class="btn" type="submit">➕ Add Instructor</button>
         </form>
-        <h2>Instructor List</h2>
+    </div>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: var(--dashboard-blue); margin-bottom: 1.5rem;">Instructor List</h2>
         <table class="table">
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Qualifications</th><th>Schedule</th><th>Branch</th><th>Actions</th></tr>
             <?php while($row = $res->fetch_assoc()): ?>
@@ -96,6 +89,6 @@ $branches = $conn->query('SELECT * FROM branches');
             <?php endwhile; ?>
         </table>
     </div>
-    <footer>&copy; 2025 Origin Driving School</footer>
-</body>
-</html>
+</div>
+
+<?php include '../includes/footer.php'; ?>

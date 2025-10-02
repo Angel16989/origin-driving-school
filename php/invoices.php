@@ -15,27 +15,17 @@ if ($action === 'pay' && isset($_GET['id'])) {
     exit;
 }
 $res = $conn->query('SELECT i.*, s.name as student_name FROM invoices i LEFT JOIN students s ON i.student_id = s.id');
+
+$page_title = "Manage Invoices - Origin Driving School";
+$page_description = "Manage and track student invoices";
+include '../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Invoices</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <header><h1>Invoices</h1></header>
-    <nav>
-        <a href="../dashboard.php">🏠 Dashboard</a>
-        <a href="students.php">👥 Students</a>
-        <a href="instructors.php">👨‍🏫 Instructors</a>
-        <a href="bookings.php">📅 Bookings</a>
-        <a href="invoices.php">💰 Invoices</a>
-        <a href="messages.php">💬 Messages</a>
-        <a href="logout.php">🚪 Logout</a>
-    </nav>
-    <div class="container">
-        <h2>Invoice List</h2>
+
+<div class="container" style="margin-top: 6rem; padding: 2rem;">
+    <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">💰 Manage Invoices</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: var(--dashboard-blue); margin-bottom: 1.5rem;">Invoice List</h2>
         <table class="table">
             <tr><th>ID</th><th>Student</th><th>Amount</th><th>Status</th><th>Created At</th><th>Actions</th></tr>
             <?php while($row = $res->fetch_assoc()): ?>
@@ -55,7 +45,10 @@ $res = $conn->query('SELECT i.*, s.name as student_name FROM invoices i LEFT JOI
             </tr>
             <?php endwhile; ?>
         </table>
-        <h3>Financial Report</h3>
+    </div>
+    
+    <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 2rem; border-radius: 15px; margin-top: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">📊 Financial Report</h3>
         <?php
         $res = $conn->query('SELECT SUM(amount) AS total FROM invoices WHERE status = "Paid"');
         $row = $res->fetch_assoc();
@@ -64,9 +57,17 @@ $res = $conn->query('SELECT i.*, s.name as student_name FROM invoices i LEFT JOI
         $row = $res->fetch_assoc();
         $pending = $row['pending'] ? $row['pending'] : 0.00;
         ?>
-        <p>Total Income: $<?php echo number_format($income,2); ?></p>
-        <p>Pending Payments: $<?php echo number_format($pending,2); ?></p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1rem;">
+            <div style="background: rgba(40, 167, 69, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 5px solid #28a745;">
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Total Income</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #28a745;">$<?php echo number_format($income,2); ?></div>
+            </div>
+            <div style="background: rgba(255, 193, 7, 0.1); padding: 1.5rem; border-radius: 10px; border-left: 5px solid #ffc107;">
+                <div style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Pending Payments</div>
+                <div style="font-size: 2rem; font-weight: 700; color: #ffc107;">$<?php echo number_format($pending,2); ?></div>
+            </div>
+        </div>
     </div>
-    <footer>&copy; 2025 Origin Driving School</footer>
-</body>
-</html>
+</div>
+
+<?php include '../includes/footer.php'; ?>

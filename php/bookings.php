@@ -40,27 +40,16 @@ if ($action === 'delete' && isset($_GET['id'])) {
 $res = $conn->query('SELECT b.*, s.name as student_name, i.name as instructor_name FROM bookings b LEFT JOIN students s ON b.student_id = s.id LEFT JOIN instructors i ON b.instructor_id = i.id');
 $students = $conn->query('SELECT * FROM students');
 $instructors = $conn->query('SELECT * FROM instructors');
+
+$page_title = "Manage Bookings - Origin Driving School";
+$page_description = "Manage student lesson bookings";
+include '../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Bookings</title>
-    <link rel="stylesheet" href="../css/styles.css">
-    <script src="../js/scripts.js"></script>
-</head>
-<body>
-    <header><h1>Bookings</h1></header>
-    <nav>
-        <a href="../dashboard.php">🏠 Dashboard</a>
-        <a href="students.php">👥 Students</a>
-        <a href="instructors.php">👨‍🏫 Instructors</a>
-        <a href="bookings.php">📅 Bookings</a>
-        <a href="invoices.php">💰 Invoices</a>
-        <a href="messages.php">💬 Messages</a>
-        <a href="logout.php">🚪 Logout</a>
-    </nav>
-    <div class="container">
+
+<div class="container" style="margin-top: 6rem; padding: 2rem;">
+    <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">📅 Manage Bookings</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
         <h2>Add Booking</h2>
         <form method="post" action="?action=add">
             <div class="form-group"><label>Student</label><select name="student_id" required>
@@ -81,8 +70,11 @@ $instructors = $conn->query('SELECT * FROM instructors');
             <div class="form-group"><label>Time</label><input type="time" name="time" required></div>
             <button class="btn" type="submit">📅 Add Booking</button>
         </form>
-        <?php if(isset($msg)) echo '<p style="color:red;">'.$msg.'</p>'; ?>
-        <h2>Booking List</h2>
+        <?php if(isset($msg)) echo '<div style="background: #f8d7da; color: #721c24; padding: 1rem; border-radius: 10px; margin: 1rem 0;"><strong>'.$msg.'</strong></div>'; ?>
+    </div>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: var(--dashboard-blue); margin-bottom: 1.5rem;">Booking List</h2>
         <table class="table">
             <tr><th>ID</th><th>Student</th><th>Instructor</th><th>Date</th><th>Time</th><th>Status</th><th>Actions</th></tr>
             <?php while($row = $res->fetch_assoc()): ?>
@@ -97,8 +89,10 @@ $instructors = $conn->query('SELECT * FROM instructors');
             </tr>
             <?php endwhile; ?>
         </table>
-        <button class="btn" onclick="showCalendar()">Show Calendar</button>
+        <div style="margin-top: 2rem;">
+            <button class="btn" onclick="showCalendar()">📆 Show Calendar</button>
+        </div>
     </div>
-    <footer>&copy; 2025 Origin Driving School</footer>
-</body>
-</html>
+</div>
+
+<?php include '../includes/footer.php'; ?>

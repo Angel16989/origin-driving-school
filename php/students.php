@@ -42,18 +42,16 @@ if ($action === 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 // Fetch students
 $res = $conn->query('SELECT * FROM students');
+
+$page_title = "Manage Students - Origin Driving School";
+$page_description = "Admin-only student management system";
+include '../includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Students</title>
-    <link rel="stylesheet" href="../css/styles.css">
-</head>
-<body>
-    <header><h1>👥 Student Management</h1><p>Admin-only student management system</p></header>
-    <?php renderNavigation($_SESSION['role']); ?>
-    <div class="container">
+
+<div class="container" style="margin-top: 6rem; padding: 2rem;">
+    <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">👥 Student Management</h1>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
         <h2>Add Student</h2>
         <form method="post" action="?action=add">
             <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
@@ -63,7 +61,10 @@ $res = $conn->query('SELECT * FROM students');
             <div class="form-group"><label>Progress</label><input type="text" name="progress" required></div>
             <button class="btn" type="submit">➕ Add Student</button>
         </form>
-        <h2>Student List</h2>
+    </div>
+    
+    <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <h2 style="color: var(--dashboard-blue); margin-bottom: 1.5rem;">Student List</h2>
         <table class="table">
             <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>License</th><th>Progress</th><th>Actions</th></tr>
             <?php while($row = $res->fetch_assoc()): ?>
@@ -84,6 +85,6 @@ $res = $conn->query('SELECT * FROM students');
             <?php endwhile; ?>
         </table>
     </div>
-    <footer>&copy; 2025 Origin Driving School</footer>
-</body>
-</html>
+</div>
+
+<?php include '../includes/footer.php'; ?>
