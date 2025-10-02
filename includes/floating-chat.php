@@ -1,4 +1,10 @@
 <!-- floating-chat.php - Facebook-style Floating Chat Messenger -->
+<?php
+// Detect if we're in a subfolder to adjust API paths
+$chat_current_dir = dirname($_SERVER['PHP_SELF']);
+$chat_in_subfolder = (strpos($chat_current_dir, '/php') !== false || strpos($chat_current_dir, '\php') !== false);
+$chat_api_prefix = $chat_in_subfolder ? '../php/' : 'php/';
+?>
 <style>
     /* Floating Chat Button */
     .chat-float-button {
@@ -401,6 +407,7 @@
 </div>
 
 <script>
+const CHAT_API_PREFIX = '<?php echo $chat_api_prefix; ?>';
 let currentChatUserId = null;
 let currentChatUserName = '';
 
@@ -438,7 +445,7 @@ function backToUsersList() {
 
 function loadMessages(userId) {
     // Fetch messages from server
-    fetch(`php/get_messages.php?user_id=${userId}`)
+    fetch(`${CHAT_API_PREFIX}get_messages.php?user_id=${userId}`)
         .then(response => response.json())
         .then(messages => {
             const container = document.getElementById('messagesContainer');
@@ -473,7 +480,7 @@ function sendMessage() {
     if (!message || !currentChatUserId) return;
     
     // Send message to server
-    fetch('php/send_message.php', {
+    fetch(`${CHAT_API_PREFIX}send_message.php`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
