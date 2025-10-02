@@ -21,9 +21,45 @@ if ($action === 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 if ($action === 'delete' && isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
+    
+    // Delete related records first (to avoid foreign key constraint errors)
+    // Delete payments for this student's invoices
+    $conn->query("DELETE p FROM payments p 
+                  INNER JOIN invoices i ON p.invoice_id = i.id 
+                  WHERE i.student_id = $id");
+    
+    // Delete invoices for this student
+    $conn->query("DELETE FROM invoices WHERE student_id = $id");
+    
+    // Delete bookings for this student
+    $conn->query("DELETE FROM bookings WHERE student_id = $id");
+    
+    // Delete messages sent by or to this student
+    $student_stmt = $conn->prepare("SELECT email FROM students WHERE id = ?");
+    $student_stmt->bind_param('i', $id);
+    $student_stmt->execute();
+    $student_result = $student_stmt->get_result();
+    if ($student_row = $student_result->fetch_assoc()) {
+        $student_email = $student_row['email'];
+        // Get user_id for this student
+        $user_stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+        $user_stmt->bind_param('s', $student_email);
+        $user_stmt->execute();
+        $user_result = $user_stmt->get_result();
+        if ($user_row = $user_result->fetch_assoc()) {
+            $user_id = $user_row['id'];
+            // Delete messages
+            $conn->query("DELETE FROM messages WHERE sender_id = $user_id OR receiver_id = $user_id");
+            // Delete user account
+            $conn->query("DELETE FROM users WHERE id = $user_id");
+        }
+    }
+    
+    // Finally, delete the student
     $conn->query("DELETE FROM students WHERE id = $id");
-    header('Location: students.php');
+    
+    header('Location: students.php?deleted=1');
     exit;
 }
 // Edit
@@ -50,6 +86,12 @@ include '../includes/header.php';
 
 <div class="container" style="margin-top: 6rem; padding: 2rem;">
     <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">👥 Student Management</h1>
+    
+    <?php if (isset($_GET['deleted'])): ?>
+        <div style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border-left: 5px solid #28a745;">
+            <strong>✅ Student deleted successfully!</strong> All related records (bookings, invoices, payments, messages) have been removed.
+        </div>
+    <?php endif; ?>
     
     <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
         <h2>Add Student</h2>

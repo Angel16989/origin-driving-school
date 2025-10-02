@@ -20,9 +20,37 @@ if ($action === 'add' && $_SERVER['REQUEST_METHOD'] === 'POST') {
     exit;
 }
 if ($action === 'delete' && isset($_GET['id'])) {
-    $id = $_GET['id'];
+    $id = intval($_GET['id']);
+    
+    // Delete related records first (to avoid foreign key constraint errors)
+    // Delete bookings for this instructor
+    $conn->query("DELETE FROM bookings WHERE instructor_id = $id");
+    
+    // Delete messages sent by or to this instructor
+    $instructor_stmt = $conn->prepare("SELECT email FROM instructors WHERE id = ?");
+    $instructor_stmt->bind_param('i', $id);
+    $instructor_stmt->execute();
+    $instructor_result = $instructor_stmt->get_result();
+    if ($instructor_row = $instructor_result->fetch_assoc()) {
+        $instructor_email = $instructor_row['email'];
+        // Get user_id for this instructor
+        $user_stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+        $user_stmt->bind_param('s', $instructor_email);
+        $user_stmt->execute();
+        $user_result = $user_stmt->get_result();
+        if ($user_row = $user_result->fetch_assoc()) {
+            $user_id = $user_row['id'];
+            // Delete messages
+            $conn->query("DELETE FROM messages WHERE sender_id = $user_id OR receiver_id = $user_id");
+            // Delete user account
+            $conn->query("DELETE FROM users WHERE id = $user_id");
+        }
+    }
+    
+    // Finally, delete the instructor
     $conn->query("DELETE FROM instructors WHERE id = $id");
-    header('Location: instructors.php');
+    
+    header('Location: instructors.php?deleted=1');
     exit;
 }
 if ($action === 'edit' && $_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -48,6 +76,12 @@ include '../includes/header.php';
 
 <div class="container" style="margin-top: 6rem; padding: 2rem;">
     <h1 style="color: var(--dashboard-blue); margin-bottom: 2rem;">👨‍🏫 Manage Instructors</h1>
+    
+    <?php if (isset($_GET['deleted'])): ?>
+        <div style="background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%); color: #155724; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; border-left: 5px solid #28a745;">
+            <strong>✅ Instructor deleted successfully!</strong> All related records (bookings, messages) have been removed.
+        </div>
+    <?php endif; ?>
     
     <div style="background: white; padding: 2rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
         <h2>Add Instructor</h2>

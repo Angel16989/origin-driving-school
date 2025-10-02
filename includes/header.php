@@ -7,6 +7,12 @@ $current_dir = dirname($_SERVER['PHP_SELF']);
 $in_subfolder = (strpos($current_dir, '/php') !== false || strpos($current_dir, '\php') !== false);
 $path_prefix = $in_subfolder ? '../' : '';
 
+// Check if user is logged in and their role
+$user_role = $_SESSION['role'] ?? '';
+$is_admin = ($user_role === 'admin');
+$is_instructor = ($user_role === 'instructor');
+$is_student = ($user_role === 'student');
+
 // Determine navigation links based on current page
 // If on main page (index), use anchor links for scrolling
 // If on other pages, link back to index.php sections
@@ -18,6 +24,14 @@ $instructors_link = $path_prefix . 'instructors.php';
 $login_link = $path_prefix . 'login.php';
 $index_link = $path_prefix . 'index.php';
 $dashboard_link = $path_prefix . 'dashboard.php';
+
+// Admin-specific links
+$php_prefix = $in_subfolder ? '' : 'php/';
+$admin_students_link = $path_prefix . $php_prefix . 'students.php';
+$admin_instructors_link = $path_prefix . $php_prefix . 'instructors.php';
+$admin_bookings_link = $path_prefix . $php_prefix . 'bookings.php';
+$admin_invoices_link = $path_prefix . $php_prefix . 'invoices.php';
+$logout_link = $path_prefix . $php_prefix . 'logout.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,24 +55,89 @@ $dashboard_link = $path_prefix . 'dashboard.php';
     </style>
 </head>
 <body class="page-transition">
-    <!-- Professional Navigation Header (Consistent across all pages) -->
+    <!-- Professional Navigation Header (Role-based navigation) -->
     <nav class="main-nav" style="background: rgba(12, 36, 97, 0.95); backdrop-filter: blur(20px); padding: 1rem 0; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-        <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
-            <a href="<?php echo $index_link; ?>" style="display: flex; align-items: center; text-decoration: none;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem;">
+            <a href="<?php echo $is_admin ? $dashboard_link : $index_link; ?>" style="display: flex; align-items: center; text-decoration: none;">
                 <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--yellow-line), #ffed4e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-right: 1rem;">🚗</div>
                 <div>
                     <h1 style="color: white; font-size: 1.5rem; margin: 0; font-weight: 800;">Origin Driving School</h1>
-                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0;">Professional Driving Education</p>
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem; margin: 0;">
+                        <?php 
+                        if ($is_admin) echo '🔐 Admin Panel';
+                        elseif ($is_instructor) echo '👨‍🏫 Instructor Portal';
+                        elseif ($is_student) echo '📚 Student Portal';
+                        else echo 'Professional Driving Education';
+                        ?>
+                    </p>
                 </div>
             </a>
-            <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="<?php echo $about_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
-                <a href="<?php echo $services_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
-                <a href="<?php echo $instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
-                <a href="<?php echo $contact_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
-                <a href="<?php echo isset($_SESSION['username']) ? $dashboard_link : $login_link; ?>" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 0.9rem; padding: 0.8rem 1.5rem;">
-                    <?php echo isset($_SESSION['username']) ? 'Dashboard' : 'Student Portal'; ?>
-                </a>
+            
+            <div style="display: flex; gap: 1.5rem; align-items: center;">
+                <?php if ($is_admin): ?>
+                    <!-- Admin Navigation -->
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'dashboard' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        🏠 Dashboard
+                    </a>
+                    <a href="<?php echo $admin_students_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'students' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        👥 Students
+                    </a>
+                    <a href="<?php echo $admin_instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        👨‍🏫 Instructors
+                    </a>
+                    <a href="<?php echo $admin_bookings_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'bookings' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        📅 Bookings
+                    </a>
+                    <a href="<?php echo $admin_invoices_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'invoices' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        💰 Invoices
+                    </a>
+                    <a href="<?php echo $path_prefix . $php_prefix . 'analytics.php'; ?>" class="nav-link" style="color: <?php echo $current_page === 'analytics' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        📊 Analytics
+                    </a>
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                        🚪 Logout
+                    </a>
+                    
+                <?php elseif ($is_instructor): ?>
+                    <!-- Instructor Navigation -->
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        🏠 Dashboard
+                    </a>
+                    <a href="<?php echo $path_prefix . $php_prefix . 'my_schedule.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        📅 Schedule
+                    </a>
+                    <a href="<?php echo $path_prefix . $php_prefix . 'my_students.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        👥 Students
+                    </a>
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                        🚪 Logout
+                    </a>
+                    
+                <?php elseif ($is_student): ?>
+                    <!-- Student Navigation -->
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        🏠 Dashboard
+                    </a>
+                    <a href="<?php echo $path_prefix . 'book_lesson.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        📚 Book Lesson
+                    </a>
+                    <a href="<?php echo $path_prefix . 'quick_pay.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                        💳 Quick Pay
+                    </a>
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                        🚪 Logout
+                    </a>
+                    
+                <?php else: ?>
+                    <!-- Public Navigation (Not logged in) -->
+                    <a href="<?php echo $about_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
+                    <a href="<?php echo $services_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
+                    <a href="<?php echo $instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
+                    <a href="<?php echo $contact_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
+                    <a href="<?php echo $login_link; ?>" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                        Student Portal
+                    </a>
+                <?php endif; ?>
             </div>
         </div>
     </nav>

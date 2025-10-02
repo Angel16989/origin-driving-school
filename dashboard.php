@@ -124,6 +124,7 @@ if ($user_role === 'admin') {
             <a href="php/instructors.php" class="btn">👨‍🏫 Manage Instructors</a>
             <a href="php/bookings.php" class="btn">📅 View All Bookings</a>
             <a href="php/invoices.php" class="btn btn-success">💰 Financial Overview</a>
+            <a href="php/analytics.php" class="btn" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">📊 Advanced Analytics</a>
             <a href="php/messages.php" class="btn">💬 System Messages</a>
         </div>
         
