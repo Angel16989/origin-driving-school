@@ -241,6 +241,7 @@ include '../includes/header.php';
             <button onclick="exportToExcel()" class="btn btn-success" style="background: #28a745;">📈 Export to Excel</button>
             <button onclick="toggleRealtime()" class="btn" id="realtimeBtn">⚡ Enable Real-time Updates</button>
             <button onclick="showPredictiveAnalytics()" class="btn" style="background: #6f42c1;">🔮 Predictive Analytics</button>
+            <button onclick="testLibraries()" class="btn" style="background: #17a2b8;">🔧 Test Libraries</button>
         </div>
     </div>
     
@@ -322,19 +323,41 @@ include '../includes/header.php';
 
 <!-- jsPDF Library for PDF Export -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.6.0/jspdf.plugin.autotable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
 
 <!-- SheetJS for Excel Export -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
 <script>
+// Check if libraries loaded
+console.log('Chart.js loaded:', typeof Chart !== 'undefined');
+console.log('jsPDF loaded:', typeof window.jspdf !== 'undefined');
+console.log('XLSX loaded:', typeof XLSX !== 'undefined');
+
+// Wait for all scripts to load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing charts...');
+});
 // Prepare data from PHP
 const revenueData = <?php echo json_encode($revenue_data); ?>;
 const bookingData = <?php echo json_encode($booking_data); ?>;
 const instructorData = <?php echo json_encode($instructor_data); ?>;
 const enrollmentData = <?php echo json_encode($enrollment_data); ?>;
 
+console.log('Data loaded:', {
+    revenue: revenueData.length,
+    bookings: bookingData.length,
+    instructors: instructorData.length,
+    enrollment: enrollmentData.length
+});
+
 let realtimeInterval = null;
+
+// Wait for Chart.js to load
+if (typeof Chart === 'undefined') {
+    console.error('Chart.js not loaded!');
+    alert('Error: Chart library not loaded. Please refresh the page.');
+}
 
 // Revenue Chart
 const revenueCtx = document.getElementById('revenueChart').getContext('2d');
@@ -423,7 +446,7 @@ const bookingsChart = new Chart(bookingsCtx, {
 // Instructor Performance Chart
 const instructorCtx = document.getElementById('instructorChart').getContext('2d');
 const instructorChart = new Chart(instructorCtx, {
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
         labels: instructorData.map(d => d.name),
         datasets: [{
@@ -477,11 +500,22 @@ const enrollmentChart = new Chart(enrollmentCtx, {
 
 // Generate PDF Report
 function generatePDFReport() {
+    console.log('Generating PDF...');
+    
+    // Check if jsPDF is loaded
+    if (typeof window.jspdf === 'undefined') {
+        alert('❌ Error: PDF library not loaded. Please refresh the page and try again.');
+        console.error('jsPDF not loaded');
+        return;
+    }
+    
     document.getElementById('loadingOverlay').classList.add('active');
     
     setTimeout(() => {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+        try {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            console.log('jsPDF initialized');
         
         // Title
         doc.setFontSize(20);
@@ -546,20 +580,37 @@ function generatePDFReport() {
             doc.text('© 2025 Origin Driving School - Confidential', 105, 290, { align: 'center' });
         }
         
-        // Save PDF
-        doc.save('analytics-report-' + new Date().getTime() + '.pdf');
-        
-        document.getElementById('loadingOverlay').classList.remove('active');
-        alert('✅ PDF Report generated successfully!');
+            // Save PDF
+            doc.save('analytics-report-' + new Date().getTime() + '.pdf');
+            console.log('PDF saved successfully');
+            
+            document.getElementById('loadingOverlay').classList.remove('active');
+            alert('✅ PDF Report generated successfully!');
+        } catch (error) {
+            console.error('PDF Generation Error:', error);
+            document.getElementById('loadingOverlay').classList.remove('active');
+            alert('❌ Error generating PDF: ' + error.message);
+        }
     }, 1000);
 }
 
 // Export to Excel
 function exportToExcel() {
+    console.log('Exporting to Excel...');
+    
+    // Check if XLSX is loaded
+    if (typeof XLSX === 'undefined') {
+        alert('❌ Error: Excel library not loaded. Please refresh the page and try again.');
+        console.error('XLSX not loaded');
+        return;
+    }
+    
     document.getElementById('loadingOverlay').classList.add('active');
     
     setTimeout(() => {
-        const wb = XLSX.utils.book_new();
+        try {
+            const wb = XLSX.utils.book_new();
+            console.log('XLSX workbook created');
         
         // Summary Sheet
         const summaryData = [
@@ -588,11 +639,17 @@ function exportToExcel() {
         const instructorsSheet = XLSX.utils.json_to_sheet(instructorData);
         XLSX.utils.book_append_sheet(wb, instructorsSheet, 'Instructors');
         
-        // Save Excel file
-        XLSX.writeFile(wb, 'analytics-data-' + new Date().getTime() + '.xlsx');
-        
-        document.getElementById('loadingOverlay').classList.remove('active');
-        alert('✅ Excel file exported successfully!');
+            // Save Excel file
+            XLSX.writeFile(wb, 'analytics-data-' + new Date().getTime() + '.xlsx');
+            console.log('Excel file saved successfully');
+            
+            document.getElementById('loadingOverlay').classList.remove('active');
+            alert('✅ Excel file exported successfully!');
+        } catch (error) {
+            console.error('Excel Export Error:', error);
+            document.getElementById('loadingOverlay').classList.remove('active');
+            alert('❌ Error exporting Excel: ' + error.message);
+        }
     }, 1000);
 }
 
@@ -619,10 +676,34 @@ function toggleRealtime() {
     }
 }
 
+// Test Libraries
+function testLibraries() {
+    let report = '🔧 LIBRARY STATUS CHECK\n\n';
+    
+    report += '✅ Chart.js: ' + (typeof Chart !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n';
+    report += '✅ jsPDF: ' + (typeof window.jspdf !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n';
+    report += '✅ XLSX: ' + (typeof XLSX !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n\n';
+    
+    report += 'DATA STATUS:\n';
+    report += '• Revenue data: ' + revenueData.length + ' records\n';
+    report += '• Booking data: ' + bookingData.length + ' records\n';
+    report += '• Instructor data: ' + instructorData.length + ' records\n';
+    report += '• Enrollment data: ' + enrollmentData.length + ' records\n\n';
+    
+    if (typeof Chart !== 'undefined' && typeof window.jspdf !== 'undefined' && typeof XLSX !== 'undefined') {
+        report += '✅ ALL SYSTEMS READY!\nYou can now generate PDF and Excel reports.';
+    } else {
+        report += '❌ SOME LIBRARIES MISSING\nPlease refresh the page and wait for all libraries to load.';
+    }
+    
+    alert(report);
+    console.log(report);
+}
+
 // Predictive Analytics
 function showPredictiveAnalytics() {
-    const avgRevenue = revenueData.reduce((sum, d) => sum + parseFloat(d.daily_revenue), 0) / revenueData.length;
-    const avgBookings = bookingData.reduce((sum, d) => sum + parseInt(d.total_bookings), 0) / bookingData.length;
+    const avgRevenue = revenueData.length > 0 ? revenueData.reduce((sum, d) => sum + parseFloat(d.daily_revenue || 0), 0) / revenueData.length : 0;
+    const avgBookings = bookingData.length > 0 ? bookingData.reduce((sum, d) => sum + parseInt(d.total_bookings || 0), 0) / bookingData.length : 0;
     
     const prediction = `
 📊 PREDICTIVE ANALYTICS
