@@ -29,14 +29,14 @@ $revenue_data = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Booking Analytics
 $booking_query = "SELECT 
-    DATE(created_at) as date,
+    DATE(date) as date,
     COUNT(*) as total_bookings,
     SUM(CASE WHEN status = 'Confirmed' THEN 1 ELSE 0 END) as confirmed,
     SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) as completed,
     SUM(CASE WHEN status = 'Cancelled' THEN 1 ELSE 0 END) as cancelled
 FROM bookings 
-WHERE created_at BETWEEN ? AND ?
-GROUP BY DATE(created_at)
+WHERE date BETWEEN ? AND ?
+GROUP BY DATE(date)
 ORDER BY date ASC";
 
 $stmt = $conn->prepare($booking_query);
