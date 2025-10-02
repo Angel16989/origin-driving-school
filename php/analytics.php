@@ -1,5 +1,5 @@
 <?php
-// analytics.php - Advanced Analytics Dashboard with Charts
+// analytics.php - Advanced Analytics Dashboard with Chart.js
 session_start();
 require_once 'db_connect.php';
 
@@ -51,7 +51,7 @@ $instructor_query = "SELECT
     SUM(CASE WHEN b.status = 'Completed' THEN 1 ELSE 0 END) as completed_lessons,
     AVG(CASE WHEN b.status = 'Completed' THEN inv.amount ELSE NULL END) as avg_revenue
 FROM instructors i
-LEFT JOIN bookings b ON i.id = b.instructor_id AND b.created_at BETWEEN ? AND ?
+LEFT JOIN bookings b ON i.id = b.instructor_id AND b.date BETWEEN ? AND ?
 LEFT JOIN invoices inv ON b.student_id = inv.student_id AND inv.created_at BETWEEN ? AND ?
 GROUP BY i.id, i.name
 ORDER BY total_lessons DESC
@@ -78,9 +78,9 @@ $enrollment_data = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Summary Statistics
 $total_revenue = $conn->query("SELECT SUM(amount) as total FROM payments WHERE paid_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
-$total_bookings = $conn->query("SELECT COUNT(*) as total FROM bookings WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
+$total_bookings = $conn->query("SELECT COUNT(*) as total FROM bookings WHERE date BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
 $total_students = $conn->query("SELECT COUNT(*) as total FROM students WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
-$completion_rate = $conn->query("SELECT (SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) / COUNT(*) * 100) as rate FROM bookings WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['rate'] ?? 0;
+$completion_rate = $conn->query("SELECT (SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) / COUNT(*) * 100) as rate FROM bookings WHERE date BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['rate'] ?? 0;
 
 $page_title = "Advanced Analytics - Origin Driving School";
 $page_description = "Real-time analytics and reporting";
