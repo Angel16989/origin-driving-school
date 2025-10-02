@@ -8,8 +8,8 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     exit;
 }
 
-// Get date range filter
-$date_from = $_GET['date_from'] ?? date('Y-m-01'); // First day of current month
+// Get date range filter - Default to last 12 months to show all dummy data
+$date_from = $_GET['date_from'] ?? date('Y-m-d', strtotime('-12 months')); // 12 months ago
 $date_to = $_GET['date_to'] ?? date('Y-m-d'); // Today
 
 // Revenue Analytics

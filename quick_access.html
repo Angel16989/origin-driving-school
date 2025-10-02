@@ -1,0 +1,94 @@
+<!-- quick_access.html - Quick links for testing -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Origin Driving School - Quick Access</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        h1 { text-align: center; margin-bottom: 30px; }
+        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .link { 
+            display: block; 
+            padding: 15px; 
+            background: rgba(255,255,255,0.2); 
+            text-decoration: none; 
+            color: white; 
+            border-radius: 8px; 
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        .link:hover { 
+            background: rgba(255,255,255,0.3); 
+            transform: translateY(-2px);
+        }
+        .section { margin: 30px 0; }
+        .test-credentials {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 Origin Driving School - Quick Access</h1>
+        
+        <div class="section">
+            <h3>🏠 Main Pages</h3>
+            <div class="links">
+                <a href="http://localhost/Groupprojectdevelopingweb/index.php" class="link">🏠 Homepage</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/login.php" class="link">🔐 Login</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/register.php" class="link">📝 Register</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/about.php" class="link">ℹ️ About</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📊 Admin Features</h3>
+            <div class="links">
+                <a href="http://localhost/Groupprojectdevelopingweb/dashboard.php" class="link">🔧 Dashboard</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/php/analytics.php" class="link">📈 Analytics</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/php/students.php" class="link">👥 Students</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/php/instructors.php" class="link">👨‍🏫 Instructors</a>
+            </div>
+        </div>
+
+        <div class="test-credentials">
+            <h3>🔑 Test Login Credentials</h3>
+            <p><strong>Admin:</strong> admin@driving.com / password123</p>
+            <p><strong>Instructor:</strong> mike@driving.com / password123</p>
+            <p><strong>Student:</strong> jane@example.com / password123</p>
+        </div>
+
+        <div class="section">
+            <h3>🛠️ Direct Access (Bypass Login)</h3>
+            <div class="links">
+                <a href="http://localhost/Groupprojectdevelopingweb/test_analytics.php" class="link">📊 Test Analytics</a>
+                <a href="http://localhost/Groupprojectdevelopingweb/setup_admin.php" class="link">⚙️ Setup Admin</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <p style="text-align: center; margin-top: 30px; font-size: 0.9rem;">
+                💡 <strong>Tip:</strong> If you get "Not Found" errors, try these direct links first, then log in normally.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
