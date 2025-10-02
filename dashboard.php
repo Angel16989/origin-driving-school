@@ -74,6 +74,7 @@ if ($user_role === 'admin') {
     <meta charset="UTF-8">
     <title>Dashboard - Origin Driving School</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dashboard_fix.css">
 </head>
 <body class="page-transition">
     <header>
@@ -152,7 +153,7 @@ if ($user_role === 'admin') {
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
             <a href="php/my_schedule.php" class="btn btn-pulse">📅 View My Schedule</a>
             <a href="php/my_students.php" class="btn">👥 My Students</a>
-            <a href="php/instructor_messages.php" class="btn">� Messages</a>
+            <a href="php/instructor_messages.php" class="btn">💬 Messages</a>
         </div>
         
         <?php elseif ($user_role === 'student'): ?>
