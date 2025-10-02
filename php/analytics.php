@@ -18,8 +18,7 @@ $revenue_query = "SELECT
     SUM(amount) as daily_revenue,
     COUNT(*) as transactions
 FROM payments 
-WHERE status = 'completed' 
-AND paid_at BETWEEN ? AND ?
+WHERE paid_at BETWEEN ? AND ?
 GROUP BY DATE(paid_at)
 ORDER BY date ASC";
 
@@ -78,7 +77,7 @@ $stmt->execute();
 $enrollment_data = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Summary Statistics
-$total_revenue = $conn->query("SELECT SUM(amount) as total FROM payments WHERE status = 'completed' AND paid_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
+$total_revenue = $conn->query("SELECT SUM(amount) as total FROM payments WHERE paid_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
 $total_bookings = $conn->query("SELECT COUNT(*) as total FROM bookings WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
 $total_students = $conn->query("SELECT COUNT(*) as total FROM students WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['total'] ?? 0;
 $completion_rate = $conn->query("SELECT (SUM(CASE WHEN status = 'Completed' THEN 1 ELSE 0 END) / COUNT(*) * 100) as rate FROM bookings WHERE created_at BETWEEN '$date_from' AND '$date_to'")->fetch_assoc()['rate'] ?? 0;
