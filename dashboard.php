@@ -176,7 +176,8 @@ if ($user_role === 'admin') {
         </div>
         <h3>🚗 Student Quick Actions</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem;">
-            <a href="php/my_bookings.php" class="btn btn-pulse">📅 Book New Lesson</a>
+            <a href="book_lesson.php" class="btn btn-pulse">📅 Book New Lesson</a>
+            <a href="php/my_bookings.php" class="btn">📋 My Bookings</a>
             <a href="php/my_profile.php" class="btn">👤 Update Profile</a>
             <a href="php/my_invoices.php" class="btn">💳 View Payments</a>
             <a href="php/student_messages.php" class="btn">💬 Messages</a>
