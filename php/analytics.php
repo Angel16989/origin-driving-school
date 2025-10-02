@@ -175,6 +175,21 @@ include '../includes/header.php';
     .export-buttons {
         display: flex;
         gap: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .export-buttons .btn {
+        transition: all 0.2s ease;
+    }
+    
+    .export-buttons .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .export-buttons .btn:active {
+        transform: translateY(0);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
     
     .loading-overlay {
@@ -236,12 +251,13 @@ include '../includes/header.php';
     
     <!-- Export Buttons -->
     <div style="background: white; padding: 1.5rem; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+        <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">📥 Export & Analysis Tools</h3>
         <div class="export-buttons">
-            <button onclick="generatePDFReport()" class="btn btn-danger" style="background: #dc3545;">📊 Generate PDF Report</button>
-            <button onclick="exportToExcel()" class="btn btn-success" style="background: #28a745;">📈 Export to Excel</button>
-            <button onclick="toggleRealtime()" class="btn" id="realtimeBtn">⚡ Enable Real-time Updates</button>
-            <button onclick="showPredictiveAnalytics()" class="btn" style="background: #6f42c1;">🔮 Predictive Analytics</button>
-            <button onclick="testLibraries()" class="btn" style="background: #17a2b8;">🔧 Test Libraries</button>
+            <button type="button" onclick="generatePDFReport(); return false;" class="btn btn-danger" style="background: #dc3545;">📊 Generate PDF Report</button>
+            <button type="button" onclick="exportToExcel(); return false;" class="btn btn-success" style="background: #28a745;">📈 Export to Excel</button>
+            <button type="button" onclick="toggleRealtime(); return false;" class="btn" id="realtimeBtn">⚡ Enable Real-time Updates</button>
+            <button type="button" onclick="showPredictiveAnalytics(); return false;" class="btn" style="background: #6f42c1;">🔮 Predictive Analytics</button>
+            <button type="button" onclick="testLibraries(); return false;" class="btn" style="background: #17a2b8;">🔧 Test Libraries</button>
         </div>
     </div>
     
@@ -500,14 +516,17 @@ const enrollmentChart = new Chart(enrollmentCtx, {
 
 // Generate PDF Report
 function generatePDFReport() {
-    console.log('Generating PDF...');
+    console.log('📊 PDF GENERATION STARTED');
+    console.log('Button clicked successfully!');
     
     // Check if jsPDF is loaded
     if (typeof window.jspdf === 'undefined') {
-        alert('❌ Error: PDF library not loaded. Please refresh the page and try again.');
-        console.error('jsPDF not loaded');
-        return;
+        alert('❌ Error: PDF library not loaded.\n\nPlease:\n1. Check internet connection\n2. Refresh page (Ctrl+F5)\n3. Wait 10 seconds\n4. Try again');
+        console.error('❌ jsPDF not loaded');
+        return false;
     }
+    
+    console.log('✓ jsPDF library loaded successfully');
     
     document.getElementById('loadingOverlay').classList.add('active');
     
@@ -596,14 +615,17 @@ function generatePDFReport() {
 
 // Export to Excel
 function exportToExcel() {
-    console.log('Exporting to Excel...');
+    console.log('📈 EXCEL EXPORT STARTED');
+    console.log('Button clicked successfully!');
     
     // Check if XLSX is loaded
     if (typeof XLSX === 'undefined') {
-        alert('❌ Error: Excel library not loaded. Please refresh the page and try again.');
-        console.error('XLSX not loaded');
-        return;
+        alert('❌ Error: Excel library not loaded.\n\nPlease:\n1. Check internet connection\n2. Refresh page (Ctrl+F5)\n3. Wait 10 seconds\n4. Try again');
+        console.error('❌ XLSX not loaded');
+        return false;
     }
+    
+    console.log('✓ XLSX library loaded successfully');
     
     document.getElementById('loadingOverlay').classList.add('active');
     
@@ -655,6 +677,7 @@ function exportToExcel() {
 
 // Real-time Updates
 function toggleRealtime() {
+    console.log('⚡ REAL-TIME TOGGLE CLICKED');
     const btn = document.getElementById('realtimeBtn');
     
     if (realtimeInterval) {
@@ -678,11 +701,13 @@ function toggleRealtime() {
 
 // Test Libraries
 function testLibraries() {
+    console.log('🔧 Testing libraries...');
+    
     let report = '🔧 LIBRARY STATUS CHECK\n\n';
     
-    report += '✅ Chart.js: ' + (typeof Chart !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n';
-    report += '✅ jsPDF: ' + (typeof window.jspdf !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n';
-    report += '✅ XLSX: ' + (typeof XLSX !== 'undefined' ? 'LOADED' : '❌ NOT LOADED') + '\n\n';
+    report += '✅ Chart.js: ' + (typeof Chart !== 'undefined' ? 'LOADED ✓' : '❌ NOT LOADED') + '\n';
+    report += '✅ jsPDF: ' + (typeof window.jspdf !== 'undefined' ? 'LOADED ✓' : '❌ NOT LOADED') + '\n';
+    report += '✅ XLSX: ' + (typeof XLSX !== 'undefined' ? 'LOADED ✓' : '❌ NOT LOADED') + '\n\n';
     
     report += 'DATA STATUS:\n';
     report += '• Revenue data: ' + revenueData.length + ' records\n';
@@ -691,19 +716,27 @@ function testLibraries() {
     report += '• Enrollment data: ' + enrollmentData.length + ' records\n\n';
     
     if (typeof Chart !== 'undefined' && typeof window.jspdf !== 'undefined' && typeof XLSX !== 'undefined') {
-        report += '✅ ALL SYSTEMS READY!\nYou can now generate PDF and Excel reports.';
+        report += '✅ ALL SYSTEMS READY!\n\nYou can now:\n• Generate PDF Reports\n• Export to Excel\n• Use all analytics features';
     } else {
-        report += '❌ SOME LIBRARIES MISSING\nPlease refresh the page and wait for all libraries to load.';
+        report += '❌ SOME LIBRARIES MISSING\n\nPlease:\n1. Check your internet connection\n2. Refresh the page (Ctrl+F5)\n3. Wait 5-10 seconds\n4. Try again';
     }
     
     alert(report);
     console.log(report);
+    
+    return false; // Prevent any default action
 }
 
 // Predictive Analytics
 function showPredictiveAnalytics() {
+    console.log('🔮 PREDICTIVE ANALYTICS STARTED');
+    console.log('Calculating forecasts...');
+    
     const avgRevenue = revenueData.length > 0 ? revenueData.reduce((sum, d) => sum + parseFloat(d.daily_revenue || 0), 0) / revenueData.length : 0;
     const avgBookings = bookingData.length > 0 ? bookingData.reduce((sum, d) => sum + parseInt(d.total_bookings || 0), 0) / bookingData.length : 0;
+    
+    console.log('Average revenue:', avgRevenue);
+    console.log('Average bookings:', avgBookings);
     
     const prediction = `
 📊 PREDICTIVE ANALYTICS
@@ -727,6 +760,8 @@ Based on current trends:
     `;
     
     alert(prediction);
+    console.log('✓ Predictive analytics completed');
+    return false; // Prevent any default action
 }
 </script>
 
