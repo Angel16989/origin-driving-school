@@ -11,6 +11,8 @@ session_start();
     <meta name="description" content="Learn to drive with Origin Driving School - Premier driving instruction with certified instructors, flexible scheduling, and high pass rates. Book your lesson today!">
     <meta name="keywords" content="driving school, driving lessons, learn to drive, driving instructor, driving test, license">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/enhanced-styles.css">
+    <link rel="stylesheet" href="css/css-graphics.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -35,32 +37,33 @@ session_start();
                 </div>
             </div>
             <div style="display: flex; gap: 2rem; align-items: center;">
-                <a href="#about" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
-                <a href="#services" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
+                <a href="about.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
+                <a href="services.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
                 <a href="instructors.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
-                <a href="#contact" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
+                <a href="gallery.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Gallery</a>
+                <a href="contact.php" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
                 <a href="login.php" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 0.9rem; padding: 0.8rem 1.5rem;">Student Portal</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section style="background: linear-gradient(135deg, var(--dashboard-blue) 0%, #40407a 100%); color: white; padding: 8rem 2rem 6rem; margin-top: 80px; position: relative; overflow: hidden;">
+    <section class="hero-enhanced hero-with-photo" style="background: linear-gradient(135deg, rgba(12, 36, 97, 0.85) 0%, rgba(64, 64, 122, 0.8) 100%), url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2000&q=80'); color: white; padding: 8rem 2rem 6rem; margin-top: 80px; position: relative; overflow: hidden; background-size: cover; background-position: center;">
         <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%); animation: containerGlow 15s ease-in-out infinite; pointer-events: none;"></div>
         
-        <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
-            <h1 style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.1;">
-                Master the Road with <span style="color: var(--yellow-line);">Confidence</span>
+        <div class="hero-content" style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
+            <h1 class="hero-title" style="font-size: clamp(3rem, 8vw, 5rem); font-weight: 900; margin-bottom: 1.5rem; line-height: 1.1;">
+                Master the Road with <span class="gradient-text" style="color: var(--yellow-line);">Confidence</span>
             </h1>
             <p style="font-size: 1.4rem; margin-bottom: 3rem; opacity: 0.95; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.6;">
                 Join over 5,000 successful drivers who learned with Origin Driving School's certified instructors and cutting-edge training methods.
             </p>
-            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem;">
-                <a href="register.php" class="btn btn-pulse cta-button" style="font-size: 1.2rem; padding: 1.5rem 3rem; background: var(--yellow-line); color: var(--tire-black);">
-                    Start Learning Today
+            <div class="hero-cta" style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 4rem;">
+                <a href="register.php" class="btn btn-pulse cta-button btn-enhanced btn-primary-enhanced" style="font-size: 1.2rem; padding: 1.5rem 3rem; background: var(--yellow-line); color: var(--tire-black);">
+                    🚀 Start Learning Today
                 </a>
-                <a href="#services" class="btn cta-button" style="font-size: 1.2rem; padding: 1.5rem 3rem; background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white;">
-                    View Packages
+                <a href="services.php" class="btn cta-button btn-enhanced btn-secondary-enhanced" style="font-size: 1.2rem; padding: 1.5rem 3rem; background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white;">
+                    📦 View Packages
                 </a>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 800px; margin: 0 auto;">
@@ -81,6 +84,66 @@ session_start();
                     <div style="opacity: 0.9;">Years Experience</div>
                 </div>
             </div>
+
+            <div class="hero-gallery-grid">
+                <div class="media-frame">
+                    <span class="media-tag">On the Road</span>
+                    <img src="https://source.unsplash.com/600x600/?driving,lesson" alt="Instructor guiding a student driver on the road" loading="lazy">
+                    <div class="media-gallery-overlay">Expert-led road sessions across real DMV routes</div>
+                </div>
+                <div class="media-frame">
+                    <span class="media-tag">Training Fleet</span>
+                    <img src="https://source.unsplash.com/600x600/?car,training" alt="Origin Driving School training vehicles ready for lessons" loading="lazy">
+                    <div class="media-gallery-overlay">Modern dual-control vehicles serviced weekly</div>
+                </div>
+                <div class="media-frame">
+                    <span class="media-tag">Classroom</span>
+                    <img src="https://source.unsplash.com/600x600/?classroom,learning" alt="Students reviewing theory materials in a bright classroom" loading="lazy">
+                    <div class="media-gallery-overlay">Immersive theory classes with interactive tech</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 4rem 2rem; background: white;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 2.5rem; color: var(--dashboard-blue); margin-bottom: 1rem;">Step Inside Origin Driving School</h2>
+                <p style="font-size: 1.1rem; color: #555; max-width: 720px; margin: 0 auto; line-height: 1.7;">
+                    From smart simulators to real-world road sessions, our media gallery gives you a glimpse of the premium learning environment waiting for you.
+                </p>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-frame">
+                    <img src="https://source.unsplash.com/900x700/?driving-school,instructor" alt="Driving instructor coaching a student before a lesson" loading="lazy">
+                    <div class="media-caption">
+                        <span class="media-badge">1:1 Coaching</span>
+                        Personalized in-car strategies built around your goals
+                    </div>
+                </div>
+                <div class="media-frame">
+                    <img src="https://source.unsplash.com/900x700/?driving-test,success" alt="Happy graduate holding a fresh driver's license" loading="lazy">
+                    <div class="media-caption">
+                        <span class="media-badge">Victory Lap</span>
+                        Celebrate first-time passes with our team of experts
+                    </div>
+                </div>
+                <div class="media-frame">
+                    <img src="https://source.unsplash.com/900x700/?car-dashboard,training" alt="Car dashboard with dual controls ready for practice" loading="lazy">
+                    <div class="media-caption">
+                        <span class="media-badge">Dual Controls</span>
+                        Safety-first vehicles serviced weekly and sanitized daily
+                    </div>
+                </div>
+                <div class="media-frame">
+                    <img src="https://source.unsplash.com/900x700/?classroom,workshop" alt="Bright classroom with digital driving simulations" loading="lazy">
+                    <div class="media-caption">
+                        <span class="media-badge">Smart Theory</span>
+                        Interactive workshops, hazard perception labs & VR practice
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -94,19 +157,19 @@ session_start();
                 </p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--green-light), #26de81); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">✓</div>
+            <div class="enhanced-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+                <div class="card-enhanced scroll-reveal" style="text-align: center; padding: 2rem;">
+                    <div class="feature-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--green-light), #26de81); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">✓</div>
                     <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">Certified Instructors</h3>
                     <p style="color: var(--text-dark); line-height: 1.6;">All our instructors are fully certified with years of teaching experience and perfect safety records.</p>
                 </div>
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--blue-light), #3d4de8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">📱</div>
+                <div class="card-enhanced scroll-reveal" style="text-align: center; padding: 2rem;">
+                    <div class="feature-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--blue-light), #3d4de8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">📱</div>
                     <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">Modern Technology</h3>
                     <p style="color: var(--text-dark); line-height: 1.6;">Advanced booking system, progress tracking, and digital learning materials for the best experience.</p>
                 </div>
-                <div style="text-align: center; padding: 2rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--orange-signal), #ff9f43); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">⭐</div>
+                <div class="card-enhanced scroll-reveal" style="text-align: center; padding: 2rem;">
+                    <div class="feature-icon" style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--orange-signal), #ff9f43); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 2rem; color: white;">⭐</div>
                     <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">Flexible Scheduling</h3>
                     <p style="color: var(--text-dark); line-height: 1.6;">Book lessons at your convenience with our 7-day-a-week availability and easy rescheduling.</p>
                 </div>
@@ -122,9 +185,9 @@ session_start();
                 <p style="font-size: 1.2rem; color: var(--text-dark);">Comprehensive driving education packages tailored to your needs</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+            <div class="enhanced-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
                 <!-- Beginner Package -->
-                <div class="service-card" style="background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s;">
+                <div class="service-card service-package scroll-reveal glow-on-hover" style="background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🚗</div>
                     <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">Beginner Package</h3>
                     <div style="font-size: 3rem; font-weight: 900; color: var(--green-light); margin-bottom: 1rem;">$299</div>
@@ -139,7 +202,7 @@ session_start();
                 </div>
                 
                 <!-- Premium Package -->
-                <div class="service-card" style="background: linear-gradient(135deg, var(--dashboard-blue), #40407a); color: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(12, 36, 97, 0.3); text-align: center; transform: scale(1.05); position: relative; transition: transform 0.3s;">
+                <div class="service-card service-package featured scroll-reveal glow-on-hover" style="background: linear-gradient(135deg, var(--dashboard-blue), #40407a); color: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 15px 40px rgba(12, 36, 97, 0.3); text-align: center; transform: scale(1.05); position: relative; transition: transform 0.3s;">
                     <div style="background: var(--yellow-line); color: var(--tire-black); padding: 0.5rem 1rem; border-radius: 20px; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-weight: 700; font-size: 0.9rem;">MOST POPULAR</div>
                     <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
                     <h3 style="margin-bottom: 1rem;">Premium Package</h3>
@@ -156,7 +219,7 @@ session_start();
                 </div>
                 
                 <!-- Intensive Course -->
-                <div class="service-card" style="background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s;">
+                <div class="service-card service-package scroll-reveal glow-on-hover" style="background: white; padding: 3rem 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s;">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">⚡</div>
                     <h3 style="color: var(--dashboard-blue); margin-bottom: 1rem;">Intensive Course</h3>
                     <div style="font-size: 3rem; font-weight: 900; color: var(--orange-signal); margin-bottom: 1rem;">$799</div>
@@ -181,8 +244,8 @@ session_start();
                 <p style="font-size: 1.2rem; color: var(--text-dark);">Real success stories from our satisfied students</p>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
-                <div style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            <div class="enhanced-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+                <div class="testimonial-card scroll-reveal" style="background: linear-gradient(135deg, #f8f9fa 0%, white 100%); padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div style="display: flex; margin-bottom: 1rem;">
                         <span style="color: var(--yellow-line); font-size: 1.2rem;">★★★★★</span>
                     </div>
@@ -375,17 +438,22 @@ session_start();
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Smooth scrolling for navigation links - Only for same-page anchors on index page
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                // Only handle anchor links that exist on this page
+                if (href.startsWith('#') && href.length > 1) {
+                    const target = document.querySelector(href);
+                    if (target && target.offsetParent !== null) { // Check if element exists and is visible
+                        e.preventDefault();
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
+                // Let normal page navigation work for .php links
             });
         });
 
@@ -397,6 +465,24 @@ session_start();
             } else {
                 nav.style.background = 'rgba(12, 36, 97, 0.95)';
             }
+        });
+        
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

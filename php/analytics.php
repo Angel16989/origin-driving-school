@@ -137,8 +137,37 @@ include '../includes/header.php';
         background: white;
         padding: 2rem;
         border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .chart-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        background-size: 300% 100%;
+        animation: gradientShift 3s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+    }
+    
+    /* High-resolution canvas styling */
+    canvas {
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -webkit-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        max-width: 100% !important;
+        height: auto !important;
     }
     
     .chart-header {
@@ -368,14 +397,39 @@ console.log('Data loaded:', {
 
 let realtimeInterval = null;
 
-// Wait for Chart.js to load
-if (typeof Chart === 'undefined') {
-    console.error('Chart.js not loaded!');
-    alert('Error: Chart library not loaded. Please refresh the page.');
-}
+// Wait for Chart.js to load and DOM to be ready
+function initializeCharts() {
+    console.log('🚀 Initializing charts...');
+    
+    if (typeof Chart === 'undefined') {
+        console.error('Chart.js not loaded!');
+        alert('Error: Chart library not loaded. Please refresh the page.');
+        return;
+    }
+    
+    // Check if data exists
+    if (!revenueData || !bookingData || !instructorData || !enrollmentData) {
+        console.error('Data not loaded!');
+        alert('Error: Analytics data not loaded. Please refresh the page.');
+        return;
+    }
+    
+    console.log('✅ Data check passed:', {
+        revenue: revenueData.length,
+        bookings: bookingData.length,
+        instructors: instructorData.length,
+        enrollment: enrollmentData.length
+    });
 
-// Revenue Chart
+// Revenue Chart - Enhanced HD Resolution
 const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+// Set high DPI for crisp resolution
+revenueCtx.canvas.style.width = '100%';
+revenueCtx.canvas.style.height = '400px';
+revenueCtx.canvas.width = revenueCtx.canvas.offsetWidth * 2;
+revenueCtx.canvas.height = revenueCtx.canvas.offsetHeight * 2;
+revenueCtx.scale(2, 2);
+
 const revenueChart = new Chart(revenueCtx, {
     type: 'line',
     data: {
@@ -383,135 +437,372 @@ const revenueChart = new Chart(revenueCtx, {
         datasets: [{
             label: 'Daily Revenue ($)',
             data: revenueData.map(d => parseFloat(d.daily_revenue)),
-            borderColor: '#28a745',
-            backgroundColor: 'rgba(40, 167, 69, 0.1)',
-            borderWidth: 3,
+            borderColor: '#ff6b6b',
+            backgroundColor: 'rgba(255, 107, 107, 0.1)',
+            borderWidth: 4,
             fill: true,
-            tension: 0.4
+            tension: 0.4,
+            pointBackgroundColor: '#ff6b6b',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 3,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            shadowColor: 'rgba(255, 107, 107, 0.3)',
+            shadowBlur: 10
         }]
     },
     options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
+        devicePixelRatio: 2,
         plugins: {
-            legend: { display: true, position: 'top' },
+            legend: { 
+                display: true, 
+                position: 'top',
+                labels: {
+                    font: { size: 14, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
             tooltip: {
+                backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                titleColor: '#ffffff',
+                bodyColor: '#ffffff',
+                borderColor: '#ff6b6b',
+                borderWidth: 2,
+                cornerRadius: 10,
+                displayColors: false,
                 callbacks: {
                     label: function(context) {
-                        return '$' + context.parsed.y.toFixed(2);
+                        return '💰 Revenue: $' + context.parsed.y.toLocaleString();
                     }
                 }
             }
         },
         scales: {
+            x: {
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
             y: {
                 beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
                 ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50',
                     callback: function(value) {
-                        return '$' + value;
+                        return '$' + value.toLocaleString();
                     }
                 }
+            }
+        },
+        elements: {
+            point: {
+                hoverBackgroundColor: '#ff6b6b'
             }
         }
     }
 });
 
-// Bookings Chart
+// Bookings Chart - Enhanced HD Resolution
 const bookingsCtx = document.getElementById('bookingsChart').getContext('2d');
+// Set high DPI for crisp resolution
+bookingsCtx.canvas.style.width = '100%';
+bookingsCtx.canvas.style.height = '400px';
+bookingsCtx.canvas.width = bookingsCtx.canvas.offsetWidth * 2;
+bookingsCtx.canvas.height = bookingsCtx.canvas.offsetHeight * 2;
+bookingsCtx.scale(2, 2);
+
 const bookingsChart = new Chart(bookingsCtx, {
     type: 'bar',
     data: {
         labels: bookingData.map(d => d.date),
         datasets: [
             {
-                label: 'Confirmed',
-                data: bookingData.map(d => parseInt(d.confirmed)),
-                backgroundColor: 'rgba(255, 193, 7, 0.8)',
-                borderColor: '#ffc107',
-                borderWidth: 2
-            },
-            {
-                label: 'Completed',
+                label: '✅ Completed',
                 data: bookingData.map(d => parseInt(d.completed)),
-                backgroundColor: 'rgba(40, 167, 69, 0.8)',
-                borderColor: '#28a745',
-                borderWidth: 2
+                backgroundColor: 'rgba(46, 204, 113, 0.8)',
+                borderColor: '#2ecc71',
+                borderWidth: 2,
+                borderRadius: 8,
+                borderSkipped: false
             },
             {
-                label: 'Cancelled',
+                label: '⏳ Confirmed',
+                data: bookingData.map(d => parseInt(d.confirmed || 0)),
+                backgroundColor: 'rgba(52, 152, 219, 0.8)',
+                borderColor: '#3498db',
+                borderWidth: 2,
+                borderRadius: 8,
+                borderSkipped: false
+            },
+            {
+                label: '❌ Cancelled',
                 data: bookingData.map(d => parseInt(d.cancelled)),
-                backgroundColor: 'rgba(220, 53, 69, 0.8)',
-                borderColor: '#dc3545',
-                borderWidth: 2
+                backgroundColor: 'rgba(231, 76, 60, 0.8)',
+                borderColor: '#e74c3c',
+                borderWidth: 2,
+                borderRadius: 8,
+                borderSkipped: false
             }
         ]
     },
     options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
+        devicePixelRatio: 2,
         plugins: {
-            legend: { display: true, position: 'top' }
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: { size: 14, weight: 'bold' },
+                    color: '#2c3e50',
+                    usePointStyle: true
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                titleColor: '#ffffff',
+                bodyColor: '#ffffff',
+                borderColor: '#3498db',
+                borderWidth: 2,
+                cornerRadius: 10,
+                displayColors: true
+            }
         },
         scales: {
-            y: { beginAtZero: true }
+            x: {
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            }
         }
     }
 });
 
-// Instructor Performance Chart
+// Instructor Performance Chart - Enhanced HD Resolution
 const instructorCtx = document.getElementById('instructorChart').getContext('2d');
+// Set high DPI for crisp resolution
+instructorCtx.canvas.style.width = '100%';
+instructorCtx.canvas.style.height = '400px';
+instructorCtx.canvas.width = instructorCtx.canvas.offsetWidth * 2;
+instructorCtx.canvas.height = instructorCtx.canvas.offsetHeight * 2;
+instructorCtx.scale(2, 2);
+
 const instructorChart = new Chart(instructorCtx, {
     type: 'bar',
     data: {
         labels: instructorData.map(d => d.name),
         datasets: [{
-            label: 'Total Lessons',
+            label: '👨‍🏫 Total Lessons',
             data: instructorData.map(d => parseInt(d.total_lessons)),
-            backgroundColor: 'rgba(12, 36, 97, 0.8)',
-            borderColor: '#0c2461',
-            borderWidth: 2
+            backgroundColor: [
+                'rgba(142, 68, 173, 0.8)',
+                'rgba(52, 152, 219, 0.8)',
+                'rgba(46, 204, 113, 0.8)',
+                'rgba(241, 196, 15, 0.8)',
+                'rgba(230, 126, 34, 0.8)',
+                'rgba(231, 76, 60, 0.8)',
+                'rgba(26, 188, 156, 0.8)',
+                'rgba(155, 89, 182, 0.8)',
+                'rgba(52, 73, 94, 0.8)'
+            ],
+            borderColor: [
+                '#8e44ad',
+                '#3498db', 
+                '#2ecc71',
+                '#f1c40f',
+                '#e67e22',
+                '#e74c3c',
+                '#1abc9c',
+                '#9b59b6',
+                '#34495e'
+            ],
+            borderWidth: 3,
+            borderRadius: 8,
+            borderSkipped: false
         }]
     },
     options: {
-        indexAxis: 'y',
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
+        devicePixelRatio: 2,
+        indexAxis: 'y',
         plugins: {
-            legend: { display: true, position: 'top' }
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: { size: 14, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                titleColor: '#ffffff',
+                bodyColor: '#ffffff',
+                borderColor: '#8e44ad',
+                borderWidth: 2,
+                cornerRadius: 10,
+                displayColors: false,
+                callbacks: {
+                    label: function(context) {
+                        return '📚 Lessons: ' + context.parsed.x;
+                    }
+                }
+            }
         },
         scales: {
-            x: { beginAtZero: true }
+            x: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
+            y: {
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            }
         }
     }
 });
 
-// Enrollment Trend Chart
+// Enrollment Trend Chart - Enhanced HD Resolution
 const enrollmentCtx = document.getElementById('enrollmentChart').getContext('2d');
+// Set high DPI for crisp resolution
+enrollmentCtx.canvas.style.width = '100%';
+enrollmentCtx.canvas.style.height = '400px';
+enrollmentCtx.canvas.width = enrollmentCtx.canvas.offsetWidth * 2;
+enrollmentCtx.canvas.height = enrollmentCtx.canvas.offsetHeight * 2;
+enrollmentCtx.scale(2, 2);
+
 const enrollmentChart = new Chart(enrollmentCtx, {
     type: 'line',
     data: {
         labels: enrollmentData.map(d => d.month),
         datasets: [{
-            label: 'New Students',
+            label: '📈 New Students',
             data: enrollmentData.map(d => parseInt(d.new_students)),
             borderColor: '#17a2b8',
-            backgroundColor: 'rgba(23, 162, 184, 0.1)',
-            borderWidth: 3,
+            backgroundColor: 'rgba(23, 162, 184, 0.2)',
+            borderWidth: 4,
             fill: true,
-            tension: 0.4
+            tension: 0.4,
+            pointBackgroundColor: '#17a2b8',
+            pointBorderColor: '#ffffff',
+            pointBorderWidth: 3,
+            pointRadius: 6,
+            pointHoverRadius: 8
         }]
     },
     options: {
         responsive: true,
-        maintainAspectRatio: true,
+        maintainAspectRatio: false,
+        devicePixelRatio: 2,
         plugins: {
-            legend: { display: true, position: 'top' }
+            legend: {
+                display: true,
+                position: 'top',
+                labels: {
+                    font: { size: 14, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
+            tooltip: {
+                backgroundColor: 'rgba(44, 62, 80, 0.95)',
+                titleColor: '#ffffff',
+                bodyColor: '#ffffff',
+                borderColor: '#17a2b8',
+                borderWidth: 2,
+                cornerRadius: 10,
+                displayColors: false,
+                callbacks: {
+                    label: function(context) {
+                        return '👥 Students: ' + context.parsed.y;
+                    }
+                }
+            }
         },
         scales: {
-            y: { beginAtZero: true }
+            x: {
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50'
+                }
+            },
+            y: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(0,0,0,0.05)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    font: { size: 12, weight: 'bold' },
+                    color: '#2c3e50',
+                    stepSize: 1
+                }
+            }
         }
     }
 });
+
+console.log('✅ All charts initialized successfully!');
+} // End of initializeCharts function
+
+// Initialize charts when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('🔥 DOM loaded, starting chart initialization...');
+    initializeCharts();
+});
+
+// Backup initialization if DOMContentLoaded already fired
+if (document.readyState === 'loading') {
+    console.log('⏳ Document still loading, waiting for DOMContentLoaded...');
+} else {
+    console.log('🚀 Document already loaded, initializing charts immediately...');
+    initializeCharts();
+}
 
 // Generate PDF Report
 function generatePDFReport() {

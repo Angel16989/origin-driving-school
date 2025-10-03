@@ -1,0 +1,136 @@
+/* Footer Fix - Sticky Footer at Bottom */
+/* This file fixes the footer positioning issue across all pages */
+
+/* Make body a flex container */
+body {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+}
+
+/* Main content area should grow to fill available space */
+.main-content,
+.container-fluid,
+.container,
+main {
+    flex: 1 !important;
+    min-height: calc(100vh - 200px) !important;
+}
+
+/* Ensure footer sticks to bottom */
+footer {
+    margin-top: auto !important;
+    position: relative !important;
+    width: 100% !important;
+    flex-shrink: 0 !important;
+}
+
+/* Fix for pages with specific layouts */
+.dashboard-container,
+.admin-container,
+.instructor-container,
+.student-container {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+/* Content wrapper for admin/instructor/student pages */
+.content-wrapper {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+/* Page content should grow */
+.page-content,
+.dashboard-content,
+.admin-content {
+    flex: 1 !important;
+    padding-bottom: 2rem !important;
+}
+
+/* Table containers should not cause footer issues */
+.table-responsive,
+.card-body,
+.analytics-container {
+    overflow-x: auto !important;
+    width: 100% !important;
+}
+
+/* Fix for forms and modals */
+.form-container,
+.modal-content {
+    position: relative !important;
+}
+
+/* Ensure all main sections push footer down */
+section.main-section,
+.hero-section,
+.features-section,
+.about-section,
+.contact-section {
+    min-height: auto !important;
+}
+
+/* Special fix for analytics page */
+.analytics-page {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+.analytics-content {
+    flex: 1 !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Fix for login/register pages */
+.auth-container {
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    justify-content: center !important;
+}
+
+.auth-form {
+    flex: none !important;
+}
+
+/* Mobile responsiveness for footer */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 1rem 1rem !important;
+    }
+    
+    .main-content {
+        min-height: calc(100vh - 150px) !important;
+    }
+}
+
+/* Print styles - hide footer when printing */
+@media print {
+    footer {
+        display: none !important;
+    }
+    
+    body {
+        min-height: auto !important;
+    }
+}
+
+/* Debug mode - uncomment to see layout boxes */
+/*
+body * {
+    outline: 1px solid rgba(255, 0, 0, 0.3) !important;
+}
+
+footer {
+    outline: 3px solid green !important;
+}
+
+.main-content {
+    outline: 3px solid blue !important;
+}
+*/

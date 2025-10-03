@@ -1,5 +1,8 @@
+    </main>
+    <!-- End Main Content Wrapper -->
+    
     <!-- Footer (DWIN309 Compliant - Consistent across all pages) -->
-    <footer style="background: var(--road-dark); color: white; padding: 3rem 2rem 2rem; text-align: center;">
+    <footer style="background: var(--road-dark); color: white; padding: 3rem 2rem 2rem; text-align: center; margin-top: auto;">
         <div style="max-width: 1200px; margin: 0 auto;">
             <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 2rem;">
                 <div style="width: 60px; height: 60px; background: linear-gradient(135deg, var(--yellow-line), #ffed4e); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-right: 1rem;">🚗</div>
@@ -27,22 +30,11 @@
         </div>
     </footer>
 
+    <!-- Visual Enhancements Script -->
+    <script src="<?php echo $path_prefix; ?>js/visual-enhancements.js"></script>
+    
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navigation
+        // Add scroll effect to navigation only
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('.main-nav');
             if (nav && window.scrollY > 100) {

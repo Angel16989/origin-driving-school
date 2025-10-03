@@ -42,70 +42,17 @@ try {
     ];
 }
 
-$instructorImages = [
-    "https://source.unsplash.com/400x400/?driving-instructor,professional",
-    "https://source.unsplash.com/400x400/?driving-teacher",
-    "https://source.unsplash.com/400x400/?driving-coach",
-    "https://source.unsplash.com/400x400/?car-instructor",
-    "https://source.unsplash.com/400x400/?mentor,portrait"
-];
-
 $page_title = "Our Instructors - Origin Driving School";
 $page_description = "Meet our professional driving instructors";
 include 'includes/header.php';
 ?>
 
-<link rel="stylesheet" href="css/enhanced-styles.css">
-
-<style>
-/* Desktop-Specific Instructor Page Styles */
-@media screen and (min-width: 1024px) {
-    .instructor-hero {
-        padding: 8rem 2rem !important;
-    }
-    
-    .instructor-hero h1 {
-        font-size: 4.5rem !important;
-    }
-    
-    .instructor-hero p {
-        font-size: 1.8rem !important;
-    }
-    
-    .instructor-stats {
-        gap: 5rem !important;
-    }
-    
-    .instructor-grid {
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
-        gap: 3rem !important;
-    }
-    
-    .instructor-card {
-        padding: 3rem !important;
-        min-height: 450px !important;
-    }
-    
-    .instructor-card h3 {
-        font-size: 1.8rem !important;
-    }
-    
-    .instructor-card p {
-        font-size: 1.3rem !important;
-    }
-    
-    .instructor-card .stats {
-        font-size: 1.1rem !important;
-    }
-}
-</style>
-
 <!-- Simple Hero Section -->
-<section class="instructor-hero hero-with-photo" style="background: linear-gradient(135deg, rgba(12, 36, 97, 0.84) 0%, rgba(64, 115, 158, 0.78) 100%), url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80'); color: white; padding: 4rem 2rem; text-align: center; background-size: cover; background-position: center;">
+<section style="background: linear-gradient(135deg, #0c2461 0%, #40739e 100%); color: white; padding: 4rem 2rem; text-align: center;">
     <div style="max-width: 800px; margin: 0 auto;">
         <h1 style="font-size: 2.5rem; margin-bottom: 1rem; font-weight: 700;">Meet Our Instructors</h1>
         <p style="font-size: 1.2rem; opacity: 0.9; margin-bottom: 2rem;">Professional, certified, and experienced driving instructors ready to help you succeed</p>
-        <div class="instructor-stats" style="display: flex; justify-content: center; gap: 3rem; margin-top: 2rem;">
+        <div style="display: flex; justify-content: center; gap: 3rem; margin-top: 2rem;">
             <div style="text-align: center;">
                 <div style="font-size: 2rem; font-weight: bold;"><?php echo count($instructors); ?>+</div>
                 <div style="opacity: 0.8;">Expert Instructors</div>
@@ -126,30 +73,30 @@ include 'includes/header.php';
 <section style="padding: 4rem 2rem; background: #f8f9fa;">
     <div style="max-width: 1200px; margin: 0 auto;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-            <?php foreach ($instructors as $index => $instructor): ?>
-            <?php $portrait = $instructorImages[$index % count($instructorImages)]; ?>
-            <div style="background: white; border-radius: 10px; padding: 2rem; text-align: center; box-shadow: 0 20px 45px rgba(12,36,97,0.12); transition: transform 0.3s ease; overflow: hidden;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)';">
-                <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 1.5rem; box-shadow: 0 12px 30px rgba(12, 36, 97, 0.18);">
-                    <img src="<?php echo $portrait; ?>" alt="Portrait of <?php echo htmlspecialchars($instructor['name'] ?? 'driving instructor'); ?>" style="width: 100%; height: 100%; object-fit: cover;">
+            <?php foreach ($instructors as $instructor): ?>
+            <div style="background: white; border-radius: 10px; padding: 2rem; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                <!-- Simple Avatar -->
+                <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #0c2461, #40739e); border-radius: 50%; margin: 0 auto 1.5rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">
+                    👨‍🏫
                 </div>
                 
                 <!-- Instructor Info -->
-                <h3 style="color: #0c2461; margin-bottom: 0.5rem; font-size: 1.3rem;"><?php echo htmlspecialchars($instructor['name'] ?? 'Unknown Instructor'); ?></h3>
-                <p style="color: #40739e; margin-bottom: 1rem; font-weight: 500;"><?php echo htmlspecialchars($instructor['specialization'] ?? 'General Instruction'); ?></p>
+                <h3 style="color: #0c2461; margin-bottom: 0.5rem; font-size: 1.3rem;"><?php echo htmlspecialchars($instructor['name']); ?></h3>
+                <p style="color: #40739e; margin-bottom: 1rem; font-weight: 500;"><?php echo htmlspecialchars($instructor['specialization']); ?></p>
                 
                 <!-- Simple Stats -->
                 <div style="margin-bottom: 1.5rem;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                         <span style="color: #666;">Experience:</span>
-                        <span style="font-weight: 500;"><?php echo $instructor['experience_years'] ?? 0; ?> years</span>
+                        <span style="font-weight: 500;"><?php echo $instructor['experience_years']; ?> years</span>
                     </div>
                     <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
                         <span style="color: #666;">Students Taught:</span>
-                        <span style="font-weight: 500;"><?php echo $instructor['students_taught'] ?? 0; ?>+</span>
+                        <span style="font-weight: 500;"><?php echo $instructor['students_taught']; ?>+</span>
                     </div>
                     <div style="display: flex; justify-content: space-between;">
                         <span style="color: #666;">Rating:</span>
-                        <span style="font-weight: 500; color: #ffc107;">⭐ <?php echo $instructor['rating'] ?? 5.0; ?>/5</span>
+                        <span style="font-weight: 500; color: #ffc107;">⭐ <?php echo $instructor['rating']; ?>/5</span>
                     </div>
                 </div>
                 

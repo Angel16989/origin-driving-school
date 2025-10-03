@@ -1,0 +1,453 @@
+/**
+ * CSS-Generated AI-Style Images
+ * Beautiful gradient artwork using pure CSS
+ */
+
+/* === HERO BACKGROUND PATTERNS === */
+.hero-pattern-1 {
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg, #0c2461 0%, #1e3c72 50%, #2a5298 100%);
+    position: relative;
+}
+
+.hero-pattern-1::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(90deg, transparent, transparent 50px, rgba(255,215,0,0.03) 50px, rgba(255,215,0,0.03) 51px);
+    animation: slide 20s linear infinite;
+}
+
+/* === CAR SILHOUETTE === */
+.css-car {
+    width: 200px;
+    height: 80px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.css-car-body {
+    width: 160px;
+    height: 50px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px 10px 5px 5px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.css-car-roof {
+    width: 80px;
+    height: 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 15px 15px 0 0;
+    position: absolute;
+    bottom: 70px;
+    left: 60px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.css-car-window {
+    width: 35px;
+    height: 20px;
+    background: rgba(135, 206, 235, 0.7);
+    border-radius: 5px 5px 0 0;
+    position: absolute;
+    bottom: 50px;
+    left: 70px;
+}
+
+.css-car-window-right {
+    left: 110px;
+}
+
+.css-car-wheel {
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #666 0%, #333 50%, #000 100%);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.css-car-wheel-front {
+    left: 30px;
+}
+
+.css-car-wheel-back {
+    right: 30px;
+}
+
+.css-car-wheel::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    background: #888;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.css-car-light {
+    width: 10px;
+    height: 10px;
+    background: #FFD700;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 35px;
+    right: 20px;
+    box-shadow: 0 0 10px #FFD700;
+}
+
+/* === INSTRUCTOR AVATAR === */
+.css-instructor {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.css-instructor-head {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #ffd7a8, #ffb88c);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 45px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.css-instructor-body {
+    width: 80px;
+    height: 70px;
+    background: linear-gradient(135deg, #0c2461, #40407a);
+    border-radius: 40px 40px 10px 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 35px;
+}
+
+.css-instructor-arm {
+    width: 15px;
+    height: 50px;
+    background: linear-gradient(135deg, #ffd7a8, #ffb88c);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 40px;
+}
+
+.css-instructor-arm-left {
+    left: 25px;
+    transform: rotate(-20deg);
+}
+
+.css-instructor-arm-right {
+    right: 25px;
+    transform: rotate(20deg);
+}
+
+/* === TROPHY === */
+.css-trophy {
+    width: 100px;
+    height: 120px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.css-trophy-cup {
+    width: 60px;
+    height: 70px;
+    background: linear-gradient(180deg, #FFD700 0%, #FFA500 50%, #FFD700 100%);
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+}
+
+.css-trophy-base {
+    width: 70px;
+    height: 20px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    border-radius: 5px;
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+}
+
+.css-trophy-stem {
+    width: 20px;
+    height: 30px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    position: absolute;
+    bottom: 20px;
+    left: 40px;
+}
+
+.css-trophy-star {
+    position: absolute;
+    top: 30px;
+    left: 42px;
+    font-size: 30px;
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+}
+
+/* === ROAD SCENE === */
+.css-road-scene {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    margin: 2rem auto;
+    background: linear-gradient(180deg, #87CEEB 0%, #87CEEB 50%, #666 50%, #333 100%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.css-road-marking {
+    width: 40px;
+    height: 8px;
+    background: #FFD700;
+    position: absolute;
+    bottom: 96px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: road-move 2s linear infinite;
+}
+
+.css-road-marking:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.css-road-marking:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.css-sun {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #FFD700, #FFA500);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes road-move {
+    0% {
+        bottom: 96px;
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+/* === LICENSE CARD === */
+.css-license {
+    width: 300px;
+    height: 180px;
+    background: linear-gradient(135deg, #0c2461, #40407a);
+    border: 3px solid #FFD700;
+    border-radius: 15px;
+    position: relative;
+    margin: 2rem auto;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    padding: 20px;
+}
+
+.css-license-photo {
+    width: 60px;
+    height: 80px;
+    background: linear-gradient(135deg, #87CEEB, #4682B4);
+    border-radius: 5px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.css-license-text {
+    position: absolute;
+    top: 30px;
+    left: 100px;
+    right: 20px;
+}
+
+.css-license-text div {
+    height: 8px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.css-license-text div:first-child {
+    width: 80%;
+    height: 12px;
+    background: rgba(255,255,255,0.9);
+}
+
+/* === PARKING ICON === */
+.css-parking {
+    width: 120px;
+    height: 120px;
+    background: #007bff;
+    border-radius: 15px;
+    position: relative;
+    margin: 2rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,123,255,0.4);
+}
+
+.css-parking::after {
+    content: 'P';
+    font-size: 80px;
+    font-weight: 900;
+    color: white;
+    text-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+/* === CHECKMARK SUCCESS === */
+.css-checkmark {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #28a745, #20c997);
+    position: relative;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+}
+
+.css-checkmark::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 60px;
+    border: solid white;
+    border-width: 0 8px 8px 0;
+    transform: rotate(45deg) translate(-50%, -50%);
+    top: 40%;
+    left: 45%;
+}
+
+/* === STEERING WHEEL === */
+.css-steering {
+    width: 100px;
+    height: 100px;
+    border: 10px solid #333;
+    border-radius: 50%;
+    position: relative;
+    margin: 2rem auto;
+    background: linear-gradient(135deg, #444, #222);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255,255,255,0.1);
+}
+
+.css-steering::before {
+    content: '';
+    width: 8px;
+    height: 70px;
+    background: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.css-steering::after {
+    content: '';
+    width: 70px;
+    height: 8px;
+    background: #333;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* === TRAFFIC LIGHT === */
+.css-traffic-light {
+    width: 60px;
+    height: 140px;
+    background: #333;
+    border-radius: 10px;
+    position: relative;
+    margin: 2rem auto;
+    padding: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.css-light {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 5px auto;
+    opacity: 0.3;
+}
+
+.css-light-red {
+    background: #dc3545;
+    box-shadow: 0 0 20px #dc3545;
+}
+
+.css-light-yellow {
+    background: #ffc107;
+    box-shadow: 0 0 20px #ffc107;
+}
+
+.css-light-green {
+    background: #28a745;
+    box-shadow: 0 0 20px #28a745;
+    opacity: 1;
+    animation: blink 2s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* === ANIMATED ELEMENTS === */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+}
+
+.floating-car {
+    animation: float 4s ease-in-out infinite;
+}
+
+.rotating-wheel {
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* === RESPONSIVE ADJUSTMENTS === */
+@media (max-width: 768px) {
+    .css-car,
+    .css-instructor,
+    .css-trophy,
+    .css-road-scene,
+    .css-license {
+        transform: scale(0.8);
+    }
+}

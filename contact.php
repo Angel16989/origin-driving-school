@@ -5,8 +5,47 @@ $page_title = "Contact Us - Origin Driving School";
 $page_description = "Contact Origin Driving School - Get in touch with us for driving lessons, inquiries, and support.";
 include 'includes/header.php';
 ?>
+
+<link rel="stylesheet" href="css/enhanced-styles.css">
+
+<style>
+/* Desktop-Specific Contact Page Styles */
+@media screen and (min-width: 1024px) {
+    .hero-section {
+        padding: 8rem 2rem 6rem !important;
+        font-size: 1.2rem !important;
+    }
+    
+    .hero-section h2 {
+        font-size: 4rem !important;
+    }
+    
+    .hero-section p {
+        font-size: 1.8rem !important;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)) !important;
+    }
+    
+    .contact-form {
+        max-width: 700px !important;
+        margin: 0 auto !important;
+    }
+    
+    .contact-info {
+        font-size: 1.3rem !important;
+    }
+    
+    .contact-form input, .contact-form textarea, .contact-form select {
+        font-size: 18px !important;
+        padding: 16px 20px !important;
+    }
+}
+</style>
     <!-- Hero Section -->
-    <section style="background: linear-gradient(135deg, var(--dashboard-blue) 0%, #40407a 100%); color: white; padding: 6rem 2rem 4rem; position: relative; overflow: hidden;">
+        <!-- Hero Section -->
+    <section class="hero-section hero-with-photo" style="background: linear-gradient(135deg, rgba(12, 36, 97, 0.84) 0%, rgba(64, 64, 122, 0.78) 100%), url('https://images.unsplash.com/photo-1522556189639-66c481b1c6fc?auto=format&fit=crop&w=2000&q=80'); color: white; padding: 6rem 2rem 4rem; position: relative; overflow: hidden; background-size: cover; background-position: center;">
         <div style="position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%); animation: containerGlow 15s ease-in-out infinite; pointer-events: none;"></div>
         
         <div style="max-width: 1200px; margin: 0 auto; text-align: center; position: relative; z-index: 2;">
@@ -35,13 +74,27 @@ include 'includes/header.php';
             <div style="font-size: 4rem; margin-bottom: 1rem;">📞</div>
             <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">We'd Love to Hear From You!</h2>
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Whether you have questions about our courses, want to schedule a lesson, or need support, our friendly team is ready to help you succeed.</p>
+            <div class="media-strip" style="margin-top: 3rem;">
+                <div class="media-frame" style="min-height: 220px;">
+                    <img src="https://source.unsplash.com/900x650/?call-center,team" alt="Friendly support team taking calls at Origin Driving School" loading="lazy">
+                    <div class="media-gallery-overlay">Dedicated booking specialists available seven days a week</div>
+                </div>
+                <div class="media-frame" style="min-height: 220px;">
+                    <img src="https://source.unsplash.com/900x650/?reception,office" alt="Reception desk at Origin Driving School" loading="lazy">
+                    <div class="media-gallery-overlay">Visit our welcoming reception for in-person support</div>
+                </div>
+                <div class="media-frame" style="min-height: 220px;">
+                    <img src="https://source.unsplash.com/900x650/?email,support" alt="Team member responding to emails" loading="lazy">
+                    <div class="media-gallery-overlay">Average response times under 24 hours for all emails</div>
+                </div>
+            </div>
         </div>
         
         <!-- Contact Information -->
         <section style="margin: 4rem 0;">
             <h2 style="text-align: center; margin-bottom: 3rem;">📍 Get In Touch</h2>
             
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+            <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
                 <!-- Phone -->
                 <div style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); padding: 2rem; border-radius: 15px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
                     <div style="font-size: 3rem; margin-bottom: 1rem;">📞</div>

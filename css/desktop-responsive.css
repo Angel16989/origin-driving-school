@@ -1,0 +1,344 @@
+/* Desktop-First Responsive Design */
+/* Ensure proper scaling for desktop browsers */
+
+/* Base Desktop Styles - Default for screens 1024px and up */
+@media screen and (min-width: 1024px) {
+    html {
+        font-size: 20px;
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-size: 20px;
+        line-height: 1.6;
+        min-width: 1024px;
+        max-width: none;
+        margin: 0 auto;
+        zoom: 1.4;
+    }
+    
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+    
+    /* Navigation Desktop Styles */
+    nav {
+        font-size: 20px;
+        padding: 20px 0;
+    }
+    
+    nav ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    
+    nav li {
+        margin: 0;
+    }
+    
+    nav a {
+        font-size: 20px;
+        padding: 15px 20px;
+        transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
+    /* Hero Section Desktop */
+    .hero-section {
+        padding: 100px 0;
+        min-height: 80vh;
+        background-size: cover;
+        background-position: center;
+    }
+    
+    .hero-content h1 {
+        font-size: 5.5rem;
+        margin-bottom: 30px;
+    }
+    
+    .hero-content p {
+        font-size: 2rem;
+        margin-bottom: 40px;
+        max-width: 800px;
+    }
+    
+    /* Cards and Content Desktop */
+    .card, .instructor-card, .service-card {
+        padding: 40px;
+        margin: 30px;
+        min-height: 350px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .card:hover, .instructor-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+    
+    /* Grid Layouts Desktop */
+    .services-grid, .instructors-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        padding: 40px 0;
+    }
+    
+    /* Buttons Desktop */
+    .btn, .cta-button, button {
+        font-size: 22px;
+        padding: 20px 40px;
+        min-width: 200px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .btn:hover, .cta-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    
+    /* Forms Desktop */
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-group label {
+        font-size: 16px;
+        margin-bottom: 8px;
+        display: block;
+    }
+    
+    /* Global Text Improvements Desktop */
+    * {
+        -webkit-font-smoothing: antialiased !important;
+        -moz-osx-font-smoothing: grayscale !important;
+        text-rendering: optimizeLegibility !important;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700 !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    h1 { font-size: 3.5rem !important; }
+    h2 { font-size: 2.8rem !important; }
+    h3 { font-size: 2.2rem !important; }
+    h4 { font-size: 1.8rem !important; }
+    h5 { font-size: 1.5rem !important; }
+    h6 { font-size: 1.3rem !important; }
+    
+    p, li, span, div {
+        font-size: inherit !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Better link visibility */
+    a {
+        font-size: inherit !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    /* Table improvements */
+    table {
+        font-size: 16px !important;
+    }
+    
+    th, td {
+        padding: 15px 20px !important;
+        font-size: 16px !important;
+    }
+    
+    /* Dropdown options */
+    select option {
+        font-size: 18px !important;
+        padding: 12px !important;
+    }
+    
+    /* Navigation dropdown menus */
+    .dropdown-menu, .nav-dropdown {
+        font-size: 18px !important;
+        min-width: 250px !important;
+    }
+    
+    .dropdown-menu li, .nav-dropdown li {
+        padding: 12px 20px !important;
+    }
+    
+    /* Form labels */
+    .form-group label {
+        font-size: 18px !important;
+        margin-bottom: 10px !important;
+        font-weight: 600 !important;
+    }
+    
+    /* Tables Desktop */
+    table {
+        font-size: 14px;
+        width: 100%;
+        margin: 20px 0;
+    }
+    
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+    }
+    
+    /* Content Sections Desktop */
+    .content-section {
+        padding: 80px 0;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    
+    .content-section h2 {
+        font-size: 3.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .content-section p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+        max-width: 1000px;
+        margin: 0 auto 30px;
+    }
+    
+    /* Analytics Dashboard Desktop */
+    .analytics-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .chart-container {
+        width: 100%;
+        height: 400px;
+        margin: 30px 0;
+        padding: 20px;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    /* Footer Desktop */
+    footer {
+        font-size: 14px;
+        padding: 40px 0;
+        margin-top: 60px;
+    }
+    
+    .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+}
+
+/* Laptop/Tablet Landscape - 768px to 1023px */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    body {
+        font-size: 15px;
+        min-width: 768px;
+    }
+    
+    .container {
+        max-width: 960px;
+        padding: 0 15px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .services-grid, .instructors-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+}
+
+/* Prevent mobile styles from overriding desktop */
+@media screen and (min-width: 768px) {
+    /* Reset mobile-specific overrides */
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+    
+    nav ul {
+        display: flex !important;
+        flex-direction: row !important;
+        position: static !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    /* Ensure desktop text is readable */
+    body, p, div, span {
+        font-size: inherit;
+        line-height: inherit;
+    }
+    
+    /* Prevent excessive mobile padding/margins */
+    .content-section {
+        padding: 40px 20px;
+    }
+    
+    /* Desktop button sizes */
+    button, .btn, input[type="submit"] {
+        min-height: 44px;
+        font-size: 16px;
+    }
+}
+
+/* High Resolution Desktop - 1440px and up */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .services-grid, .instructors-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 40px;
+    }
+    
+    .chart-container {
+        height: 500px;
+    }
+}
+
+/* Ultra-wide Desktop - 1920px and up */
+@media screen and (min-width: 1920px) {
+    .container {
+        max-width: 1600px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4.5rem;
+    }
+    
+    .services-grid, .instructors-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
