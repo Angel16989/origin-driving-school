@@ -60,11 +60,11 @@ if ($in_subfolder) {
     <meta name="description" content="<?php echo $page_description ?? 'Origin Driving School - Professional driving education and training'; ?>">
     <style>
         body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        .nav-link:hover { color: var(--yellow-line) !important; }
+        .nav-link:hover { color: var(--yellow-line) !important; background: rgba(255,255,255,0.1); }
         .service-card:hover { transform: translateY(-10px); }
         .instructor-card:hover { transform: scale(1.05); }
         .cta-button { transition: all 0.3s ease; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0,0,0,0.3); }
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -94,69 +94,73 @@ if ($in_subfolder) {
             </button>
             
             <!-- Navigation Links -->
-            <div class="nav-links" id="navLinks" style="display: flex; gap: 1.5rem; align-items: center;">
+            <div class="nav-links" id="navLinks" style="display: flex; gap: 2rem; align-items: center;">
                 <?php if ($is_admin): ?>
                     <!-- Admin Navigation -->
-                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'dashboard' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'dashboard' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         🏠 Dashboard
                     </a>
-                    <a href="<?php echo $admin_students_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'students' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $admin_students_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'students' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         👥 Students
                     </a>
-                    <a href="<?php echo $admin_instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $admin_instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         👨‍🏫 Instructors
                     </a>
-                    <a href="<?php echo $admin_bookings_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'bookings' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $admin_bookings_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'bookings' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         📅 Bookings
                     </a>
-                    <a href="<?php echo $admin_invoices_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'invoices' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $admin_invoices_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'invoices' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         💰 Invoices
                     </a>
-                    <a href="<?php echo $admin_analytics_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'analytics' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $in_subfolder ? 'admin_inbox.php' : 'php/admin_inbox.php'; ?>" class="nav-link" style="color: <?php echo $current_page === 'admin_inbox' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
+                        📬 Inbox
+                    </a>
+                    <a href="<?php echo $admin_analytics_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'analytics' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         📊 Analytics
                     </a>
-                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 1.05rem; padding: 1rem 2rem; font-weight: 600; border-radius: 10px;">
                         🚪 Logout
                     </a>
                     
                 <?php elseif ($is_instructor): ?>
                     <!-- Instructor Navigation -->
-                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         🏠 Dashboard
                     </a>
-                    <a href="<?php echo $path_prefix . $php_prefix . 'my_schedule.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $path_prefix . $php_prefix . 'my_schedule.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         📅 Schedule
                     </a>
-                    <a href="<?php echo $path_prefix . $php_prefix . 'my_students.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $path_prefix . $php_prefix . 'my_students.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         👥 Students
                     </a>
-                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 1.05rem; padding: 1rem 2rem; font-weight: 600; border-radius: 10px;">
                         🚪 Logout
                     </a>
                     
                 <?php elseif ($is_student): ?>
                     <!-- Student Navigation -->
-                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $dashboard_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         🏠 Dashboard
                     </a>
-                    <a href="<?php echo $path_prefix . 'book_lesson.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $path_prefix . 'book_lesson.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         📚 Book Lesson
                     </a>
-                    <a href="<?php echo $path_prefix . 'quick_pay.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">
+                    <a href="<?php echo $path_prefix . 'quick_pay.php'; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">
                         💳 Quick Pay
                     </a>
-                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                    <a href="<?php echo $logout_link; ?>" class="btn cta-button" style="background: #dc3545; color: white; font-size: 1.05rem; padding: 1rem 2rem; font-weight: 600; border-radius: 10px;">
                         🚪 Logout
                     </a>
                     
                 <?php else: ?>
                     <!-- Public Navigation (Not logged in) -->
-                    <a href="<?php echo $about_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">About</a>
-                    <a href="<?php echo $services_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Services</a>
-                    <a href="<?php echo $instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">Instructors</a>
-                    <a href="<?php echo $path_prefix . 'gallery.php'; ?>" class="nav-link" style="color: <?php echo $current_page === 'gallery' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 500; transition: color 0.3s;">Gallery</a>
-                    <a href="<?php echo $contact_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 500; transition: color 0.3s;">Contact</a>
-                    <a href="<?php echo $login_link; ?>" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 0.9rem; padding: 0.8rem 1.5rem;">
+                    <a href="<?php echo $about_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">About</a>
+                    <a href="<?php echo $services_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">Services</a>
+                    <a href="<?php echo $path_prefix . 'features.php'; ?>" class="nav-link" style="color: <?php echo $current_page === 'features' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">Features</a>
+                    <a href="<?php echo $instructors_link; ?>" class="nav-link" style="color: <?php echo $current_page === 'instructors' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">Instructors</a>
+                    <a href="<?php echo $path_prefix . 'gallery.php'; ?>" class="nav-link" style="color: <?php echo $current_page === 'gallery' ? 'var(--yellow-line)' : 'white'; ?>; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">Gallery</a>
+                    <a href="<?php echo $contact_link; ?>" class="nav-link" style="color: white; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s; padding: 0.5rem 1rem; border-radius: 8px;">Contact</a>
+                    <a href="<?php echo $login_link; ?>" class="btn cta-button" style="background: var(--yellow-line); color: var(--tire-black); font-size: 1.05rem; padding: 1rem 2rem; font-weight: 600; border-radius: 10px;">
                         Student Portal
                     </a>
                 <?php endif; ?>

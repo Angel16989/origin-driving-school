@@ -43,11 +43,11 @@ try {
 }
 
 $instructorImages = [
-    "https://source.unsplash.com/400x400/?driving-instructor,professional",
-    "https://source.unsplash.com/400x400/?driving-teacher",
-    "https://source.unsplash.com/400x400/?driving-coach",
-    "https://source.unsplash.com/400x400/?car-instructor",
-    "https://source.unsplash.com/400x400/?mentor,portrait"
+    "images/Mike Johnson.png",
+    "images/Sarah Wlliams.png",
+    "images/David Chen.png",
+    "images/Maria Rodriguez.png",
+    "images/james wilson.png"
 ];
 
 $page_title = "Our Instructors - Origin Driving School";

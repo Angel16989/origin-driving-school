@@ -76,15 +76,15 @@ include 'includes/header.php';
             <p style="font-size: 1.2rem; opacity: 0.9; max-width: 600px; margin: 0 auto;">Whether you have questions about our courses, want to schedule a lesson, or need support, our friendly team is ready to help you succeed.</p>
             <div class="media-strip" style="margin-top: 3rem;">
                 <div class="media-frame" style="min-height: 220px;">
-                    <img src="https://source.unsplash.com/900x650/?call-center,team" alt="Friendly support team taking calls at Origin Driving School" loading="lazy">
+                    <img src="images/friendly support team.png" alt="Friendly support team taking calls at Origin Driving School" loading="lazy">
                     <div class="media-gallery-overlay">Dedicated booking specialists available seven days a week</div>
                 </div>
                 <div class="media-frame" style="min-height: 220px;">
-                    <img src="https://source.unsplash.com/900x650/?reception,office" alt="Reception desk at Origin Driving School" loading="lazy">
+                    <img src="images/reception desk.png" alt="Reception desk at Origin Driving School" loading="lazy">
                     <div class="media-gallery-overlay">Visit our welcoming reception for in-person support</div>
                 </div>
                 <div class="media-frame" style="min-height: 220px;">
-                    <img src="https://source.unsplash.com/900x650/?email,support" alt="Team member responding to emails" loading="lazy">
+                    <img src="images/team reponding.png" alt="Team member responding to emails" loading="lazy">
                     <div class="media-gallery-overlay">Average response times under 24 hours for all emails</div>
                 </div>
             </div>

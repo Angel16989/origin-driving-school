@@ -88,17 +88,17 @@ session_start();
             <div class="hero-gallery-grid">
                 <div class="media-frame">
                     <span class="media-tag">On the Road</span>
-                    <img src="https://source.unsplash.com/600x600/?driving,lesson" alt="Instructor guiding a student driver on the road" loading="lazy">
+                    <img src="images/thorough streets.png" alt="Instructor guiding a student driver on the road" loading="lazy">
                     <div class="media-gallery-overlay">Expert-led road sessions across real DMV routes</div>
                 </div>
                 <div class="media-frame">
                     <span class="media-tag">Training Fleet</span>
-                    <img src="https://source.unsplash.com/600x600/?car,training" alt="Origin Driving School training vehicles ready for lessons" loading="lazy">
+                    <img src="images/dual control sedan.png" alt="Origin Driving School training vehicles ready for lessons" loading="lazy">
                     <div class="media-gallery-overlay">Modern dual-control vehicles serviced weekly</div>
                 </div>
                 <div class="media-frame">
                     <span class="media-tag">Classroom</span>
-                    <img src="https://source.unsplash.com/600x600/?classroom,learning" alt="Students reviewing theory materials in a bright classroom" loading="lazy">
+                    <img src="images/interactive mordern class.png" alt="Students reviewing theory materials in a bright classroom" loading="lazy">
                     <div class="media-gallery-overlay">Immersive theory classes with interactive tech</div>
                 </div>
             </div>
@@ -116,28 +116,28 @@ session_start();
 
             <div class="media-grid">
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/900x700/?driving-school,instructor" alt="Driving instructor coaching a student before a lesson" loading="lazy">
+                    <img src="images/instructor giving feedback.png" alt="Driving instructor coaching a student before a lesson" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">1:1 Coaching</span>
                         Personalized in-car strategies built around your goals
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/900x700/?driving-test,success" alt="Happy graduate holding a fresh driver's license" loading="lazy">
+                    <img src="images/student holding her driving lisence.png" alt="Happy graduate holding a fresh driver's license" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Victory Lap</span>
                         Celebrate first-time passes with our team of experts
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/900x700/?car-dashboard,training" alt="Car dashboard with dual controls ready for practice" loading="lazy">
+                    <img src="images/dual control.png" alt="Car dashboard with dual controls ready for practice" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Dual Controls</span>
                         Safety-first vehicles serviced weekly and sanitized daily
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/900x700/?classroom,workshop" alt="Bright classroom with digital driving simulations" loading="lazy">
+                    <img src="images/simulation.png" alt="Bright classroom with digital driving simulations" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Smart Theory</span>
                         Interactive workshops, hazard perception labs & VR practice

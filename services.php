@@ -71,21 +71,21 @@ include 'includes/header.php';
             </p>
             <div class="media-grid">
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?driving-lesson,city" alt="Instructor guiding student through city streets" loading="lazy">
+                    <img src="images/thorough streets.png" alt="Instructor guiding student through city streets" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">City Skills</span>
                         Handling busy intersections and roundabouts with confidence
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?mirror-check,driving" alt="Student checking mirrors before maneuver" loading="lazy">
+                    <img src="images/checking mirror.png" alt="Student checking mirrors before maneuver" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Awareness</span>
                         Building habits around mirrors, indicators, and planning ahead
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?accelerator,lesson" alt="Close-up of instructor providing pedal feedback" loading="lazy">
+                    <img src="images/pedal advice.png" alt="Close-up of instructor providing pedal feedback" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Precision</span>
                         Smooth acceleration and braking with gentle instructor cues

@@ -89,21 +89,21 @@ include 'includes/header.php';
 
         <div class="media-grid">
             <div class="media-frame">
-                <img src="https://source.unsplash.com/1000x750/?driving,instructor" alt="Instructor explaining dashboard features to student" loading="lazy">
+                <img src="images/instructor giving feedback.png" alt="Instructor explaining dashboard features to student" loading="lazy">
                 <div class="media-caption">
                     <span class="media-badge">Coaching</span>
                     Patient guidance inside the vehicle before every session
                 </div>
             </div>
             <div class="media-frame">
-                <img src="https://source.unsplash.com/1000x750/?driving-simulator,training" alt="Student practicing driving scenario on a simulator" loading="lazy">
+                <img src="images/simulation.png" alt="Student practicing driving scenario on a simulator" loading="lazy">
                 <div class="media-caption">
                     <span class="media-badge">Sim Labs</span>
                     Hazard perception training with immersive simulations
                 </div>
             </div>
             <div class="media-frame">
-                <img src="https://source.unsplash.com/1000x750/?car,night-driving" alt="Car driving safely along city streets at night" loading="lazy">
+                <img src="images/thorough streets.png" alt="Car driving safely along city streets at night" loading="lazy">
                 <div class="media-caption">
                     <span class="media-badge">Night Flights</span>
                     Safe-night modules preparing you for low-light conditions
@@ -179,15 +179,15 @@ include 'includes/header.php';
         </h2>
         <div class="media-strip">
             <div class="media-frame">
-                <img src="https://source.unsplash.com/800x600/?driving-school,fleet" alt="Row of Origin Driving School vehicles parked outside the academy" loading="lazy">
+                <img src="images/dual control sedan.png" alt="Row of Origin Driving School vehicles parked outside the academy" loading="lazy">
                 <div class="media-gallery-overlay">Fleet inspected weekly with detailed safety checklists</div>
             </div>
             <div class="media-frame">
-                <img src="https://source.unsplash.com/800x600/?car-interior,modern" alt="Interior of a modern training vehicle highlighting dashboard" loading="lazy">
+                <img src="images/dual control.png" alt="Interior of a modern training vehicle highlighting dashboard" loading="lazy">
                 <div class="media-gallery-overlay">Touchscreen dashboards and reverse cameras for modern familiarity</div>
             </div>
             <div class="media-frame">
-                <img src="https://source.unsplash.com/800x600/?car-service,maintenance" alt="Technician performing maintenance on a vehicle" loading="lazy">
+                <img src="images/suv training.png" alt="Technician performing maintenance on a vehicle" loading="lazy">
                 <div class="media-gallery-overlay">Certified technicians keep every car in peak condition</div>
             </div>
         </div>

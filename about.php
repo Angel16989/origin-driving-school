@@ -100,15 +100,15 @@ include 'includes/header.php';
             </div>
             <div class="media-strip">
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?driving-history,school" alt="Early days of Origin Driving School with first training vehicles" loading="lazy">
+                    <img src="images/earlydaysdriving.png" alt="Early days of Origin Driving School with first training vehicles" loading="lazy">
                     <div class="media-gallery-overlay">From two cars in 2010 to a 25-vehicle smart fleet today</div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?driving,graduation" alt="Graduate celebrating with instructor at Origin Driving School" loading="lazy">
+                    <img src="images/gradeute ceremony.png" alt="Graduate celebrating with instructor at Origin Driving School" loading="lazy">
                     <div class="media-gallery-overlay">15,000+ drivers licensed with Origin coaching</div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?team,success" alt="Origin Driving School team collaborating in office" loading="lazy">
+                    <img src="images/collaborating.png" alt="Origin Driving School team collaborating in office" loading="lazy">
                     <div class="media-gallery-overlay">Multi-disciplinary team obsessed with safer roads</div>
                 </div>
             </div>
@@ -164,7 +164,7 @@ include 'includes/header.php';
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
                 <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center;">
                     <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 2rem; box-shadow: 0 12px 25px rgba(12, 36, 97, 0.18);">
-                        <img src="https://source.unsplash.com/300x300/?driving-instructor,leader" alt="Portrait of Mike Johnson, founder of Origin Driving School" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/Mike Johnson.png" alt="Portrait of Mike Johnson, founder of Origin Driving School" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <h3>Mike Johnson</h3>
                     <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 1rem;">Chief Instructor & Founder</p>
@@ -177,7 +177,7 @@ include 'includes/header.php';
                 
                 <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 2rem; border-radius: 15px; text-align: center;">
                     <div style="width: 120px; height: 120px; border-radius: 50%; overflow: hidden; margin: 0 auto 2rem; box-shadow: 0 12px 25px rgba(32, 201, 151, 0.2);">
-                        <img src="https://source.unsplash.com/300x300/?driving-coach,female" alt="Portrait of Sarah Williams, senior driving instructor" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="images/Sarah Wlliams.png" alt="Portrait of Sarah Williams, senior driving instructor" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <h3>Sarah Williams</h3>
                     <p style="color: var(--secondary-color); font-weight: 600; margin-bottom: 1rem;">Senior Driving Instructor</p>
@@ -254,21 +254,21 @@ include 'includes/header.php';
             </div>
             <div class="media-grid">
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?driving-school,classroom" alt="Students attending a workshop in Origin Driving School classroom" loading="lazy">
+                    <img src="images/wokrshop at original driving school.png" alt="Students attending a workshop in Origin Driving School classroom" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Interactive</span>
                         Smart boards, simulators, and collaborative seating plans
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?driving-range,cones" alt="Outdoor training range with cones for parking practice" loading="lazy">
+                    <img src="images/outdoor lot cones laid.png" alt="Outdoor training range with cones for parking practice" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Practice Range</span>
                         Dedicated maneuver park with customizable layouts
                     </div>
                 </div>
                 <div class="media-frame">
-                    <img src="https://source.unsplash.com/1000x750/?fleet,vehicles" alt="Lineup of dual-control vehicles ready for lessons" loading="lazy">
+                    <img src="images/dual control sedan.png" alt="Lineup of dual-control vehicles ready for lessons" loading="lazy">
                     <div class="media-caption">
                         <span class="media-badge">Fleet Ready</span>
                         Multiple body styles to mirror your driving goals
